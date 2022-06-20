@@ -280,7 +280,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// <param name="inputSeries">Comma separated input data series names and optional X and Y values names.</param>
         /// <param name="outputSeries">Comma separated output data series names and optional X and Y values names.</param>
         internal void Formula(string formulaName, string parameters, string inputSeries, string outputSeries)
-        {            
+        {
             // Array of series
             Series[] inSeries;
             Series[] outSeries;
@@ -1121,7 +1121,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// <param name="formulaName">Formula Name</param>
         /// <param name="inputSeries">Input series</param>
         [SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters")]
-        public void FinancialFormula(FinancialFormula formulaName, Series inputSeries)        
+        public void FinancialFormula(FinancialFormula formulaName, Series inputSeries)
         {
             FinancialFormula(formulaName, inputSeries, inputSeries);
         }
@@ -1208,7 +1208,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
             {
                 parameters = formulaInfo.SaveParametersToString();
             }
-            else 
+            else
             {
                 formulaInfo.CheckParameterString(parameters);
             }
@@ -1217,8 +1217,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
             SeriesFieldList inputFields = SeriesFieldList.FromString(this.Common.Chart, inputSeries, formulaInfo.InputFields);
             SeriesFieldList outputFields = SeriesFieldList.FromString(this.Common.Chart, outputSeries, formulaInfo.OutputFields);
 
-            if (inputFields != null) inputSeries = inputFields.ToString();
-            if (outputFields != null) outputSeries = outputFields.ToString();
+            if (inputFields != null)
+                inputSeries = inputFields.ToString();
+            if (outputFields != null)
+                outputSeries = outputFields.ToString();
 
             Formula(formulaName.ToString(), parameters, inputSeries, outputSeries);
         }

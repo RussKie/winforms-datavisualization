@@ -117,27 +117,27 @@ namespace System.Windows.Forms.DataVisualization.Charting.Formulas
             switch (chartType)
             {
                 case SeriesChartType.BoxPlot:
-                    return new DataField[] { 
-                        DataField.LowerWisker, DataField.UpperWisker, 
-                        DataField.LowerBox, DataField.UpperBox, 
+                    return new DataField[] {
+                        DataField.LowerWisker, DataField.UpperWisker,
+                        DataField.LowerBox, DataField.UpperBox,
                         DataField.Average, DataField.Median };
                 case SeriesChartType.Bubble:
-                    return new DataField[] { 
+                    return new DataField[] {
                         DataField.Bubble, DataField.BubbleSize };
                 case SeriesChartType.Candlestick:
                 case SeriesChartType.Stock:
-                    return new DataField[] { 
+                    return new DataField[] {
                         DataField.High, DataField.Low,
                         DataField.Open, DataField.Close };
                 case SeriesChartType.ErrorBar:
-                    return new DataField[] { 
-                        DataField.Center, 
+                    return new DataField[] {
+                        DataField.Center,
                         DataField.LowerError, DataField.UpperError};
                 case SeriesChartType.RangeBar:
                 case SeriesChartType.Range:
                 case SeriesChartType.RangeColumn:
                 case SeriesChartType.SplineRange:
-                    return new DataField[] { 
+                    return new DataField[] {
                         DataField.Top, DataField.Bottom };
                 default:
                     return new DataField[] { DataField.Y };
@@ -196,60 +196,81 @@ namespace System.Windows.Forms.DataVisualization.Charting.Formulas
                 case DataField.High:
                     switch (chartType)
                     {
-                        default: return null;
-                        case SeriesChartType.BoxPlot: return DataField.UpperBox;
+                        default:
+                            return null;
+                        case SeriesChartType.BoxPlot:
+                            return DataField.UpperBox;
                         case SeriesChartType.Candlestick:
-                        case SeriesChartType.Stock: return DataField.High;
-                        case SeriesChartType.ErrorBar: return DataField.UpperError;
+                        case SeriesChartType.Stock:
+                            return DataField.High;
+                        case SeriesChartType.ErrorBar:
+                            return DataField.UpperError;
                         case SeriesChartType.RangeBar:
                         case SeriesChartType.Range:
                         case SeriesChartType.RangeColumn:
-                        case SeriesChartType.SplineRange: return DataField.Top;
+                        case SeriesChartType.SplineRange:
+                            return DataField.Top;
                     }
 
                 case DataField.Bottom:
                 case DataField.Low:
                     switch (chartType)
                     {
-                        default: return null;
-                        case SeriesChartType.BoxPlot: return DataField.LowerBox;
+                        default:
+                            return null;
+                        case SeriesChartType.BoxPlot:
+                            return DataField.LowerBox;
                         case SeriesChartType.Candlestick:
-                        case SeriesChartType.Stock: return DataField.Low;
-                        case SeriesChartType.ErrorBar: return DataField.LowerError;
+                        case SeriesChartType.Stock:
+                            return DataField.Low;
+                        case SeriesChartType.ErrorBar:
+                            return DataField.LowerError;
                         case SeriesChartType.RangeBar:
                         case SeriesChartType.Range:
                         case SeriesChartType.RangeColumn:
-                        case SeriesChartType.SplineRange: return DataField.Bottom;
+                        case SeriesChartType.SplineRange:
+                            return DataField.Bottom;
                     }
 
                 case DataField.Open:
                     switch (chartType)
                     {
-                        default: return null;
-                        case SeriesChartType.BoxPlot: return DataField.Average;
+                        default:
+                            return null;
+                        case SeriesChartType.BoxPlot:
+                            return DataField.Average;
                         case SeriesChartType.Candlestick:
-                        case SeriesChartType.Stock: return DataField.Open;
-                        case SeriesChartType.ErrorBar: return DataField.Center;
+                        case SeriesChartType.Stock:
+                            return DataField.Open;
+                        case SeriesChartType.ErrorBar:
+                            return DataField.Center;
                         case SeriesChartType.RangeBar:
                         case SeriesChartType.Range:
                         case SeriesChartType.RangeColumn:
-                        case SeriesChartType.SplineRange: return DataField.Bottom;
+                        case SeriesChartType.SplineRange:
+                            return DataField.Bottom;
                     }
 
                 case DataField.Close:
                 case DataField.Y:
                     switch (chartType)
                     {
-                        default: return DataField.Y;
-                        case SeriesChartType.BoxPlot: return DataField.Average;
-                        case SeriesChartType.Bubble: return DataField.Bubble;
+                        default:
+                            return DataField.Y;
+                        case SeriesChartType.BoxPlot:
+                            return DataField.Average;
+                        case SeriesChartType.Bubble:
+                            return DataField.Bubble;
                         case SeriesChartType.Candlestick:
-                        case SeriesChartType.Stock: return DataField.Close;
-                        case SeriesChartType.ErrorBar: return DataField.Center;
+                        case SeriesChartType.Stock:
+                            return DataField.Close;
+                        case SeriesChartType.ErrorBar:
+                            return DataField.Center;
                         case SeriesChartType.RangeBar:
                         case SeriesChartType.Range:
                         case SeriesChartType.RangeColumn:
-                        case SeriesChartType.SplineRange: return DataField.Top;
+                        case SeriesChartType.SplineRange:
+                            return DataField.Top;
                     }
                 default:
                     return null;
@@ -278,26 +299,26 @@ namespace System.Windows.Forms.DataVisualization.Charting.Formulas
         /// Gets the input data fields of the formula.
         /// </summary>
         /// <value>The input fields.</value>
-        public DataField[] InputFields 
-        { 
-            get { return _inputFields; } 
+        public DataField[] InputFields
+        {
+            get { return _inputFields; }
         }
 
         /// <summary>
         /// Gets the output data fields of the formula.
         /// </summary>
         /// <value>The output fields.</value>
-        public DataField[] OutputFields 
-        { 
-            get { return _outputFields; } 
+        public DataField[] OutputFields
+        {
+            get { return _outputFields; }
         }
 
         /// <summary>
         /// Gets the parameters of the formula.
         /// </summary>
         /// <value>The parameters.</value>
-        public object[] Parameters 
-        { 
+        public object[] Parameters
+        {
             get { return _parameters; }
         }
         #endregion
@@ -327,7 +348,8 @@ namespace System.Windows.Forms.DataVisualization.Charting.Formulas
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < _parameters.Length; i++)
             {
-                if (i > 0) sb.Append(',');
+                if (i > 0)
+                    sb.Append(',');
                 sb.AppendFormat(CultureInfo.InvariantCulture, "{0}", _parameters[i]);
             }
             return sb.ToString();
@@ -1294,8 +1316,8 @@ namespace System.Windows.Forms.DataVisualization.Charting.Formulas
         /// Gets the series.
         /// </summary>
         /// <value>The series.</value>
-        public Series Series 
-        { 
+        public Series Series
+        {
             get { return _series; }
         }
         /// <summary>
@@ -1310,8 +1332,8 @@ namespace System.Windows.Forms.DataVisualization.Charting.Formulas
         /// Gets the data field.
         /// </summary>
         /// <value>The data field.</value>
-        public DataField DataField 
-        { 
+        public DataField DataField
+        {
             get { return _dataField; }
         }
         #endregion
@@ -1451,7 +1473,7 @@ namespace System.Windows.Forms.DataVisualization.Charting.Formulas
         {
             List<DataField> seriesFields = new List<DataField>(FormulaHelper.GetDataFields(series.ChartType));
 
-            for (int i = 0; i < unmappedFormulaFields.Count && seriesFields.Count > 0; )
+            for (int i = 0; i < unmappedFormulaFields.Count && seriesFields.Count > 0;)
             {
                 DataField formulaField = unmappedFormulaFields[i];
                 DataField? seriesField = null;
@@ -1543,7 +1565,7 @@ namespace System.Windows.Forms.DataVisualization.Charting.Formulas
             SeriesChartType chartType = FormulaHelper.GetDefaultChartType(unmappedFormulaFields[0]);
             List<DataField> seriesFields = new List<DataField>(FormulaHelper.GetDataFields(chartType));
 
-            for (int i = 0; i < unmappedFormulaFields.Count && seriesFields.Count > 0; )
+            for (int i = 0; i < unmappedFormulaFields.Count && seriesFields.Count > 0;)
             {
                 DataField formulaField = unmappedFormulaFields[i];
                 DataField? seriesField = null;

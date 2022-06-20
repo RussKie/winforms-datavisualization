@@ -17,17 +17,17 @@ namespace System.Windows.Forms.DataVisualization.Charting
     /// and can be retrieved by name or by index.
     /// </summary>
     public class ChartAreaCollection : ChartNamedElementCollection<ChartArea>
-	{
+    {
 
-		#region Constructors
+        #region Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ChartAreaCollection"/> class.
         /// </summary>
         /// <param name="chartPicture">Parent chart picture.</param>
-		internal ChartAreaCollection(ChartPicture chartPicture) : base(chartPicture)
-		{
-		}
+        internal ChartAreaCollection(ChartPicture chartPicture) : base(chartPicture)
+        {
+        }
 
         #endregion
 
@@ -35,7 +35,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// <summary>
         /// Gets the default chart area name.
         /// </summary>
-        internal string DefaultNameReference 
+        internal string DefaultNameReference
         {
             get { return this.Count > 0 ? this[0].Name : String.Empty; }
         }
@@ -48,7 +48,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// </summary>
         /// <param name="name">The new chart area name.</param>
         /// <returns></returns>
-        public ChartArea Add(string name) 
+        public ChartArea Add(string name)
         {
             ChartArea area = new ChartArea(name);
             this.Add(area);

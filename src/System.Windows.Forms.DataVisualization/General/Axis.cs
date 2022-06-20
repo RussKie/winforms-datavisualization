@@ -112,7 +112,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRDescription("DescriptionAttributeAxis_Axis"),
         DefaultProperty("Enabled"),
     ]
-    public partial class Axis :  ChartNamedElement
+    public partial class Axis : ChartNamedElement
     {
         #region Axis fields
 
@@ -125,7 +125,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         private bool _storeValuesEnabled = true;
 
         private FontCache _fontCache = new FontCache();
-        private Font  _titleFont;
+        private Font _titleFont;
         private Color _titleForeColor = Color.Black;
         private StringAlignment _titleAlignment = StringAlignment.Center;
         private string _title = "";
@@ -238,17 +238,17 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// <summary>
 		/// Minimum font size that can be used by the labels auto-fitting algorithm.
 		/// </summary>
-		internal int					labelAutoFitMinFontSize = 6;
+		internal int labelAutoFitMinFontSize = 6;
 
-		/// <summary>
-		/// Maximum font size that can be used by the labels auto-fitting algorithm.
-		/// </summary>
-		internal int					labelAutoFitMaxFontSize = 10;
+        /// <summary>
+        /// Maximum font size that can be used by the labels auto-fitting algorithm.
+        /// </summary>
+        internal int labelAutoFitMaxFontSize = 10;
 
-		/// <summary>
-		/// Axis tooltip
-		/// </summary>
-		private	string					_toolTip = String.Empty;
+        /// <summary>
+        /// Axis tooltip
+        /// </summary>
+        private string _toolTip = String.Empty;
 
         /// <summary>
         /// Axis HREF
@@ -275,7 +275,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// <param name="chartArea">The chart area the axis belongs to.</param>
         /// <param name="axisTypeName">The type of the axis.</param>
         public Axis(ChartArea chartArea, AxisName axisTypeName)
-            : base(chartArea, GetName(axisTypeName)) 
+            : base(chartArea, GetName(axisTypeName))
         {
             Initialize(axisTypeName);
         }
@@ -604,7 +604,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         Bindable(true),
         NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeMajorGrid"),
-		DesignerSerializationVisibility(DesignerSerializationVisibility.Content), 
+        DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
         TypeConverter(typeof(NoNameExpandableObjectConverter))
         ]
         public Grid MajorGrid
@@ -640,7 +640,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         Bindable(true),
         NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeMinorGrid"),
-		DesignerSerializationVisibility(DesignerSerializationVisibility.Content), 
+        DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
         TypeConverter(typeof(NoNameExpandableObjectConverter))
         ]
         public Grid MinorGrid
@@ -665,7 +665,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         Bindable(true),
         NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeMajorTickMark"),
-		DesignerSerializationVisibility(DesignerSerializationVisibility.Content), 
+        DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
         TypeConverter(typeof(NoNameExpandableObjectConverter))
         ]
         public TickMark MajorTickMark
@@ -701,7 +701,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         Bindable(true),
         NotifyParentPropertyAttribute(true),
         SRDescription("DescriptionAttributeMinorTickMark"),
-		DesignerSerializationVisibility(DesignerSerializationVisibility.Content), 
+        DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
         TypeConverter(typeof(NoNameExpandableObjectConverter))
         ]
         public TickMark MinorTickMark
@@ -744,67 +744,67 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
 
 
-		/// <summary>
+        /// <summary>
         /// Gets or sets the minimum font size that can be used by 
         /// the label auto-fitting algorithm.
-		/// </summary>
-		[
-		SRCategory("CategoryAttributeLabels"),
-		Bindable(true),
-		DefaultValue(6),
-		SRDescription("DescriptionAttributeLabelsAutoFitMinFontSize"),
-		NotifyParentPropertyAttribute(true),
-		RefreshPropertiesAttribute(RefreshProperties.All)
-		]
-		public int LabelAutoFitMinFontSize
-		{
-			get
-			{
-				return this.labelAutoFitMinFontSize;
-			}
-			set
-			{
-				// Font size cannot be less than 5
-				if(value < 5)
-				{
+        /// </summary>
+        [
+        SRCategory("CategoryAttributeLabels"),
+        Bindable(true),
+        DefaultValue(6),
+        SRDescription("DescriptionAttributeLabelsAutoFitMinFontSize"),
+        NotifyParentPropertyAttribute(true),
+        RefreshPropertiesAttribute(RefreshProperties.All)
+        ]
+        public int LabelAutoFitMinFontSize
+        {
+            get
+            {
+                return this.labelAutoFitMinFontSize;
+            }
+            set
+            {
+                // Font size cannot be less than 5
+                if (value < 5)
+                {
                     throw (new InvalidOperationException(SR.ExceptionAxisLabelsAutoFitMinFontSizeValueInvalid));
-				}
+                }
 
-				this.labelAutoFitMinFontSize = value;
-				this.Invalidate();
-			}
-		}
+                this.labelAutoFitMinFontSize = value;
+                this.Invalidate();
+            }
+        }
 
-		/// <summary>
+        /// <summary>
         /// Gets or sets the maximum font size that can be used by 
         /// the label auto-fitting algorithm.
-		/// </summary>
-		[
-		SRCategory("CategoryAttributeLabels"),
-		Bindable(true),
-		DefaultValue(10),
-		SRDescription("DescriptionAttributeLabelsAutoFitMaxFontSize"),
-		NotifyParentPropertyAttribute(true),
-		RefreshPropertiesAttribute(RefreshProperties.All)
-		]
-		public int LabelAutoFitMaxFontSize
-		{
-			get
-			{
-				return this.labelAutoFitMaxFontSize;
-			}
-			set
-			{
-				// Font size cannot be less than 5
-				if(value < 5)
-				{
+        /// </summary>
+        [
+        SRCategory("CategoryAttributeLabels"),
+        Bindable(true),
+        DefaultValue(10),
+        SRDescription("DescriptionAttributeLabelsAutoFitMaxFontSize"),
+        NotifyParentPropertyAttribute(true),
+        RefreshPropertiesAttribute(RefreshProperties.All)
+        ]
+        public int LabelAutoFitMaxFontSize
+        {
+            get
+            {
+                return this.labelAutoFitMaxFontSize;
+            }
+            set
+            {
+                // Font size cannot be less than 5
+                if (value < 5)
+                {
                     throw (new InvalidOperationException(SR.ExceptionAxisLabelsAutoFitMaxFontSizeInvalid));
-				}
+                }
 
-				this.labelAutoFitMaxFontSize = value;
-				this.Invalidate();
-			}
-		}
+                this.labelAutoFitMaxFontSize = value;
+                this.Invalidate();
+            }
+        }
 
 
 
@@ -1034,7 +1034,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         SRCategory("CategoryAttributeAppearance"),
         Bindable(true),
         SRDescription("DescriptionAttributeStripLines"),
-		DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
+        DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
         Editor(typeof(ChartCollectionEditor), typeof(UITypeEditor))
         ]
         public StripLinesCollection StripLines
@@ -1077,26 +1077,26 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
         #region	IMapAreaAttributes Properties implementation
 
-		/// <summary>
-		/// Tooltip of the axis.
-		/// </summary>
-		[
-		SRCategory("CategoryAttributeMapArea"),
-		Bindable(true),
-		SRDescription("DescriptionAttributeToolTip"),
-		DefaultValue(""),
-		]
-		public string ToolTip
-		{
-			set
-			{
-				this._toolTip = value;
-			}
-			get
-			{
-				return this._toolTip;
-			}
-		}
+        /// <summary>
+        /// Tooltip of the axis.
+        /// </summary>
+        [
+        SRCategory("CategoryAttributeMapArea"),
+        Bindable(true),
+        SRDescription("DescriptionAttributeToolTip"),
+        DefaultValue(""),
+        ]
+        public string ToolTip
+        {
+            set
+            {
+                this._toolTip = value;
+            }
+            get
+            {
+                return this._toolTip;
+            }
+        }
 
         #endregion
 
@@ -1451,20 +1451,20 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
 
 
-		/// <summary>
-		/// Paint Axis element when segmented axis scale feature is used.
-		/// </summary>
-		/// <param name="graph">Reference to the Chart Graphics object</param>
-		internal void PaintOnSegmentedScalePassOne( ChartGraphics graph )
-		{
-			// If axis is disabled draw only Title
-			if( enabled != false )
-			{
-				// Paint Minor Tick Marks
-				minorTickMark.Paint( graph, false );
+        /// <summary>
+        /// Paint Axis element when segmented axis scale feature is used.
+        /// </summary>
+        /// <param name="graph">Reference to the Chart Graphics object</param>
+        internal void PaintOnSegmentedScalePassOne(ChartGraphics graph)
+        {
+            // If axis is disabled draw only Title
+            if (enabled != false)
+            {
+                // Paint Minor Tick Marks
+                minorTickMark.Paint(graph, false);
 
-				// Paint Major Tick Marks
-				majorTickMark.Paint( graph, false );
+                // Paint Major Tick Marks
+                majorTickMark.Paint(graph, false);
             }
 
 #if SUBAXES
@@ -1479,27 +1479,27 @@ namespace System.Windows.Forms.DataVisualization.Charting
 #endif // SUBAXES
         }
 
-		/// <summary>
-		/// Paint Axis element when segmented axis scale feature is used.
-		/// </summary>
-		/// <param name="graph">Reference to the Chart Graphics object</param>
-		internal void PaintOnSegmentedScalePassTwo( ChartGraphics graph )
-		{
-			// If axis is disabled draw only Title
-			if( enabled != false )
-			{
-				// Draw axis line
-				DrawAxisLine( graph, false );
+        /// <summary>
+        /// Paint Axis element when segmented axis scale feature is used.
+        /// </summary>
+        /// <param name="graph">Reference to the Chart Graphics object</param>
+        internal void PaintOnSegmentedScalePassTwo(ChartGraphics graph)
+        {
+            // If axis is disabled draw only Title
+            if (enabled != false)
+            {
+                // Draw axis line
+                DrawAxisLine(graph, false);
 
-				// Paint Labels
-				labelStyle.Paint( graph, false);
-			}
+                // Paint Labels
+                labelStyle.Paint(graph, false);
+            }
 
-			// Draw axis title
-			this.DrawAxisTitle( graph );
-		
-			// Reset temp axis offset for side-by-side charts like column
-			this.ResetTempAxisOffset();
+            // Draw axis title
+            this.DrawAxisTitle(graph);
+
+            // Reset temp axis offset for side-by-side charts like column
+            this.ResetTempAxisOffset();
 
 #if SUBAXES
 			// Process all sub-axis
@@ -1513,7 +1513,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 #endif // SUBAXES
 
         }
-				
+
         /// <summary>
         /// Draw axis title
         /// </summary>
@@ -1628,11 +1628,11 @@ namespace System.Windows.Forms.DataVisualization.Charting
                             SizeF axisTitleSize = graph.GetAbsoluteSize(new SizeF(titleSizeWithoutSpacing, ChartArea.PlotAreaPosition.Height));
                             axisTitleSize = graph.GetRelativeSize(new SizeF(axisTitleSize.Height, axisTitleSize.Width));
 
-							_titlePosition.Width = axisTitleSize.Width;
-							_titlePosition.Height = axisTitleSize.Height;
+                            _titlePosition.Width = axisTitleSize.Width;
+                            _titlePosition.Height = axisTitleSize.Height;
 
                             _titlePosition.Y += ChartArea.PlotAreaPosition.Height / 2f - _titlePosition.Height / 2f;
-							_titlePosition.X += titleSizeWithoutSpacing / 2f - _titlePosition.Width / 2f;
+                            _titlePosition.X += titleSizeWithoutSpacing / 2f - _titlePosition.Width / 2f;
 
                             // Set graphics rotation transformation
                             oldTransform = this.SetRotationTransformation(graph, _titlePosition);
@@ -1671,11 +1671,11 @@ namespace System.Windows.Forms.DataVisualization.Charting
                             SizeF axisTitleSize = graph.GetAbsoluteSize(new SizeF(titleSizeWithoutSpacing, ChartArea.PlotAreaPosition.Height));
                             axisTitleSize = graph.GetRelativeSize(new SizeF(axisTitleSize.Height, axisTitleSize.Width));
 
-							_titlePosition.Width = axisTitleSize.Width;
-							_titlePosition.Height = axisTitleSize.Height;
-							
+                            _titlePosition.Width = axisTitleSize.Width;
+                            _titlePosition.Height = axisTitleSize.Height;
+
                             _titlePosition.Y += ChartArea.PlotAreaPosition.Height / 2f - _titlePosition.Height / 2f;
-							_titlePosition.X += titleSizeWithoutSpacing / 2f - _titlePosition.Width / 2f;
+                            _titlePosition.X += titleSizeWithoutSpacing / 2f - _titlePosition.Width / 2f;
 
                             // Set graphics rotation transformation
                             oldTransform = this.SetRotationTransformation(graph, _titlePosition);
@@ -1719,8 +1719,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
 #if DEBUG
                     // TESTING CODE: Shows labels rectangle position.
-					//				RectangleF rr = graph.GetAbsoluteRectangle(_titlePosition);
-					//				graph.DrawRectangle(Pens.Blue, rr.X, rr.Y, rr.Width, rr.Height);
+                    //				RectangleF rr = graph.GetAbsoluteRectangle(_titlePosition);
+                    //				graph.DrawRectangle(Pens.Blue, rr.X, rr.Y, rr.Width, rr.Height);
 #endif // DEBUG
 
                     // Draw title
@@ -1742,9 +1742,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
                     // NOTE: Solves Issue #4423
                     // Transform title position coordinates using curent Graphics matrix
                     RectangleF transformedTitlePosition = graph.GetAbsoluteRectangle(_titlePosition);
-                    PointF[] rectPoints = new PointF[] { 
-						new PointF(transformedTitlePosition.X, transformedTitlePosition.Y),
-						new PointF(transformedTitlePosition.Right, transformedTitlePosition.Bottom) };
+                    PointF[] rectPoints = new PointF[] {
+                        new PointF(transformedTitlePosition.X, transformedTitlePosition.Y),
+                        new PointF(transformedTitlePosition.Right, transformedTitlePosition.Bottom) };
                     graph.Transform.TransformPoints(rectPoints);
                     transformedTitlePosition = new RectangleF(
                         rectPoints[0].X,
@@ -1800,7 +1800,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
             return oldTransform;
         }
-            
+
 
         /// <summary>
         /// Draws a radial line in circular Common.Chart area.
@@ -2121,9 +2121,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
                 float angleAxis = 0;
                 if (this.AxisPosition == AxisPosition.Top || this.AxisPosition == AxisPosition.Bottom)
                 {
-                    rotationCenterPoints = new Point3D[] { 
-					new Point3D(rotationCenter.X, rotationCenter.Y, zPosition),
-					new Point3D(rotationCenter.X - 20f, rotationCenter.Y, zPosition) };
+                    rotationCenterPoints = new Point3D[] {
+                    new Point3D(rotationCenter.X, rotationCenter.Y, zPosition),
+                    new Point3D(rotationCenter.X - 20f, rotationCenter.Y, zPosition) };
 
                     // Transform coordinates of text rotation point
                     ChartArea.matrix3D.TransformPoints(rotationCenterPoints);
@@ -2140,9 +2140,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
                 }
                 else
                 {
-                    rotationCenterPoints = new Point3D[] { 
-					new Point3D(rotationCenter.X, rotationCenter.Y, zPosition),
-					new Point3D(rotationCenter.X, rotationCenter.Y - 20f, zPosition) };
+                    rotationCenterPoints = new Point3D[] {
+                    new Point3D(rotationCenter.X, rotationCenter.Y, zPosition),
+                    new Point3D(rotationCenter.X, rotationCenter.Y - 20f, zPosition) };
 
                     // Transform coordinates of text rotation point
                     ChartArea.matrix3D.TransformPoints(rotationCenterPoints);
@@ -2317,20 +2317,20 @@ namespace System.Windows.Forms.DataVisualization.Charting
                 first.Y = PlotAreaPosition.Y + PlotAreaPosition.Height / 2f;
             }
 
-            
+
             if (Common.ProcessModePaint)
             {
                 if (!ChartArea.Area3DStyle.Enable3D || ChartArea.chartAreaIsCurcular)
                 {
 
-					// Start Svg/Flash Selection mode
-					graph.StartHotRegion( this._url, _toolTip );
+                    // Start Svg/Flash Selection mode
+                    graph.StartHotRegion(this._url, _toolTip);
 
                     // Draw the line
                     graph.DrawLineRel(_lineColor, _lineWidth, _lineDashStyle, first, second);
 
-					// End Svg/Flash Selection mode
-					graph.EndHotRegion( );
+                    // End Svg/Flash Selection mode
+                    graph.EndHotRegion();
 
                     // Opposite axis. Arrow uses this axis to find 
                     // a shift from Common.Chart area border. This shift 
@@ -2444,7 +2444,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
                 {
                     second.Y = PlotAreaPosition.Y + PlotAreaPosition.Height / 2f;
                 }
-                
+
                 // Create rectangle and inflate it
                 RectangleF rect = new RectangleF(first.X, first.Y, second.X - first.X, second.Y - first.Y);
                 SizeF size = graph.GetRelativeSize(new SizeF(3, 3));
@@ -2461,8 +2461,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
                 // Get the rectangle points
                 PointF[] points = new PointF[] {
                     new PointF(rect.Left, rect.Top),
-                    new PointF(rect.Right, rect.Top), 
-                    new PointF(rect.Right, rect.Bottom), 
+                    new PointF(rect.Right, rect.Top),
+                    new PointF(rect.Right, rect.Bottom),
                     new PointF(rect.Left, rect.Bottom)};
 
                 // If we are dealing with the 3D - transform the rectangle
@@ -2497,16 +2497,16 @@ namespace System.Windows.Forms.DataVisualization.Charting
                 // Add the points to the path
                 path.AddPolygon(points);
 
-				Common.HotRegionsList.AddHotRegion( 
-					graph, 
-					path, 
-					false, 
-					this._toolTip,
-					string.Empty,
-					string.Empty,
-					string.Empty,
-					this,
-					ChartElementType.Axis);
+                Common.HotRegionsList.AddHotRegion(
+                    graph,
+                    path,
+                    false,
+                    this._toolTip,
+                    string.Empty,
+                    string.Empty,
+                    string.Empty,
+                    this,
+                    ChartElementType.Axis);
             }
         }
 
@@ -2557,8 +2557,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
             if (ChartArea.ShouldDrawOnSurface(SurfaceNames.Back, backElements, tickMarksOnEdge))
             {
 
-				// Start Svg Selection mode
-				graph.StartHotRegion( this._url, _toolTip );
+                // Start Svg Selection mode
+                graph.StartHotRegion(this._url, _toolTip);
 
                 // Draw axis line on the back/front wall
                 graph.Draw3DLine(
@@ -2571,8 +2571,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
                     ChartElementType.Nothing
                     );
 
-				// End Svg Selection mode
-				graph.EndHotRegion();
+                // End Svg Selection mode
+                graph.EndHotRegion();
 
             }
 
@@ -2588,8 +2588,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
                     (this.AxisPosition == AxisPosition.Right && !ChartArea.IsSideSceneWallOnLeft()))
                 {
 
-					// Start Svg Selection mode
-					graph.StartHotRegion( this._url, _toolTip );
+                    // Start Svg Selection mode
+                    graph.StartHotRegion(this._url, _toolTip);
 
                     graph.Draw3DLine(
                         ChartArea.matrix3D,
@@ -2601,8 +2601,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
                         ChartElementType.Nothing
                         );
 
-					// End Svg Selection mode
-					graph.EndHotRegion();
+                    // End Svg Selection mode
+                    graph.EndHotRegion();
 
                 }
             }
@@ -2619,8 +2619,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
                     (this.AxisPosition == AxisPosition.Top && ChartArea.IsSideSceneWallOnLeft()))
                 {
 
-					// Start Svg Selection mode
-					graph.StartHotRegion( this._url, _toolTip );
+                    // Start Svg Selection mode
+                    graph.StartHotRegion(this._url, _toolTip);
 
                     graph.Draw3DLine(
                         ChartArea.matrix3D,
@@ -2632,8 +2632,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
                         ChartElementType.Nothing
                     );
 
-					// End Svg Selection mode
-					graph.EndHotRegion( );
+                    // End Svg Selection mode
+                    graph.EndHotRegion();
 
                 }
             }
@@ -2651,8 +2651,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
                     )
                 {
 
-					// Start Svg Selection mode
-					graph.StartHotRegion( this._url, _toolTip );
+                    // Start Svg Selection mode
+                    graph.StartHotRegion(this._url, _toolTip);
 
                     graph.Draw3DLine(
                         ChartArea.matrix3D,
@@ -2664,8 +2664,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
                         ChartElementType.Nothing
                         );
 
-					// End Svg Selection mode
-					graph.EndHotRegion();
+                    // End Svg Selection mode
+                    graph.EndHotRegion();
 
                 }
             }
@@ -2780,7 +2780,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// <param name="obj">Returns selected grid object</param>
         /// <param name="drawLinesOnly">Indicates if Lines or Stripes should be drawn.</param>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "y"),
-        System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "x"), 
+        System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "x"),
         System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "selectionMode")]
         internal void PaintStrips(ChartGraphics graph, bool selectionMode, int x, int y, out object obj, bool drawLinesOnly)
         {
@@ -3013,8 +3013,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
             // Paint mode is finished
             paintMode = false;
 
-			if(Common.Chart == null)
-			{
+            if (Common.Chart == null)
+            {
 #if SUBAXES
 				else if(this is SubAxis)
 				{
@@ -3026,10 +3026,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
 				}
 #endif // SUBAXES
             }
-			if(Common.Chart != null && Common.Chart.Site != null && Common.Chart.Site.DesignMode)
-			{
-				ResetAutoValues();
-			}
+            if (Common.Chart != null && Common.Chart.Site != null && Common.Chart.Site.DesignMode)
+            {
+                ResetAutoValues();
+            }
 
             // Reset back original custom labels
             if (tempLabels != null)
@@ -3136,7 +3136,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
             // Disable Common.Chart invalidation
             bool oldDisableInvalidates = Common.Chart.disableInvalidates;
-			Common.Chart.disableInvalidates = true;
+            Common.Chart.disableInvalidates = true;
 
             // Set Common.Chart area position
             PlotAreaPosition = chartAreaPosition;
@@ -3171,12 +3171,12 @@ namespace System.Windows.Forms.DataVisualization.Charting
                 // If axis is vertical
                 else
                 {
-					titleStringSize = chartGraph.GetAbsoluteSize(titleStringSize);
-					titleStringSize = chartGraph.GetRelativeSize(new SizeF(titleStringSize.Height, titleStringSize.Width));
-					maxTitlesize = (plotArea.Width / 100F) * (Axis.maxAxisTitleSize / axesNumber);
+                    titleStringSize = chartGraph.GetAbsoluteSize(titleStringSize);
+                    titleStringSize = chartGraph.GetRelativeSize(new SizeF(titleStringSize.Height, titleStringSize.Width));
+                    maxTitlesize = (plotArea.Width / 100F) * (Axis.maxAxisTitleSize / axesNumber);
                     if (this.IsTextVertical)
                     {
-						this.titleSize = Math.Min(titleStringSize.Width, maxTitlesize);
+                        this.titleSize = Math.Min(titleStringSize.Width, maxTitlesize);
                     }
                     else
                     {
@@ -3406,44 +3406,44 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
 
 
-			// Make sure the variable interval mode is enabled and
-			// no custom label interval used.
-			if( this.Enabled != AxisEnabled.False &&
-				this.LabelStyle.Enabled &&
-				this.IsVariableLabelCountModeEnabled() )
-			{
-				// Increase font by several points when height of the font is the most important
-				// dimension. Use original size whenwidth is the most important size.
-				float extraSize = 3f;
-				if( (this.AxisPosition == AxisPosition.Left || this.AxisPosition == AxisPosition.Right) && 
-					(this.LabelStyle.Angle == 90 || this.LabelStyle.Angle == -90) )
-				{
-					extraSize = 0f;
-				}
-				if( (this.AxisPosition == AxisPosition.Top || this.AxisPosition == AxisPosition.Bottom) && 
-					(this.LabelStyle.Angle == 180 || this.LabelStyle.Angle == 0) )
-				{
-					extraSize = 0f;
-				}
+            // Make sure the variable interval mode is enabled and
+            // no custom label interval used.
+            if (this.Enabled != AxisEnabled.False &&
+                this.LabelStyle.Enabled &&
+                this.IsVariableLabelCountModeEnabled())
+            {
+                // Increase font by several points when height of the font is the most important
+                // dimension. Use original size whenwidth is the most important size.
+                float extraSize = 3f;
+                if ((this.AxisPosition == AxisPosition.Left || this.AxisPosition == AxisPosition.Right) &&
+                    (this.LabelStyle.Angle == 90 || this.LabelStyle.Angle == -90))
+                {
+                    extraSize = 0f;
+                }
+                if ((this.AxisPosition == AxisPosition.Top || this.AxisPosition == AxisPosition.Bottom) &&
+                    (this.LabelStyle.Angle == 180 || this.LabelStyle.Angle == 0))
+                {
+                    extraSize = 0f;
+                }
 
-				// If 3D Common.Chart is used make the measurements with font several point larger
-				if(ChartArea.Area3DStyle.Enable3D)
-				{
-					extraSize += 1f;
-				}
+                // If 3D Common.Chart is used make the measurements with font several point larger
+                if (ChartArea.Area3DStyle.Enable3D)
+                {
+                    extraSize += 1f;
+                }
 
-				this.autoLabelFont = Common.Chart.chartPicture.FontCache.GetFont(this.LabelStyle.Font.FontFamily, 
-					this.LabelStyle.Font.Size + extraSize, 
-					this.LabelStyle.Font.Style, 
-					GraphicsUnit.Point);
+                this.autoLabelFont = Common.Chart.chartPicture.FontCache.GetFont(this.LabelStyle.Font.FontFamily,
+                    this.LabelStyle.Font.Size + extraSize,
+                    this.LabelStyle.Font.Style,
+                    GraphicsUnit.Point);
 
-				// Reset angle and stagged flag used in the auto-fitting algorithm
-				this.autoLabelAngle = this.LabelStyle.Angle;
-				this.autoLabelOffset = (this.LabelStyle.IsStaggered) ? 1 : 0;
+                // Reset angle and stagged flag used in the auto-fitting algorithm
+                this.autoLabelAngle = this.LabelStyle.Angle;
+                this.autoLabelOffset = (this.LabelStyle.IsStaggered) ? 1 : 0;
 
-				// Adjust interval
-				this.AdjustIntervalToFitLabels(chartGraph, autoPlotPosition, false);
-			}
+                // Adjust interval
+                this.AdjustIntervalToFitLabels(chartGraph, autoPlotPosition, false);
+            }
 
 
 
@@ -3473,9 +3473,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
                 // Pick up maximum font size
                 float size = 8f;
-				size = (float)Math.Max(this.LabelAutoFitMaxFontSize, this.LabelAutoFitMinFontSize);
-				_minLabelFontSize = Math.Min(this.LabelAutoFitMinFontSize, this.LabelAutoFitMaxFontSize);
-				_aveLabelFontSize = _minLabelFontSize + Math.Abs(size - _minLabelFontSize)/2f;
+                size = (float)Math.Max(this.LabelAutoFitMaxFontSize, this.LabelAutoFitMinFontSize);
+                _minLabelFontSize = Math.Min(this.LabelAutoFitMinFontSize, this.LabelAutoFitMaxFontSize);
+                _aveLabelFontSize = _minLabelFontSize + Math.Abs(size - _minLabelFontSize) / 2f;
 
 
                 // Check if common font size should be used
@@ -3488,7 +3488,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
                 autoLabelFont = Common.Chart.chartPicture.FontCache.GetFont(this.LabelStyle.Font.FontFamily,
                     size,
                     this.LabelStyle.Font.Style,
-					GraphicsUnit.Point
+                    GraphicsUnit.Point
                 );
 
                 // Check if we allowed to increase font size while auto-fitting
@@ -3539,7 +3539,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
                                 GraphicsUnit.Point);
                         }
 
-                            // Try to use offset labels (2D charts and non-circular arae only!!!)
+                        // Try to use offset labels (2D charts and non-circular arae only!!!)
                         else if (!ChartArea.Area3DStyle.Enable3D &&
                             !ChartArea.chartAreaIsCurcular &&
                             originalLabels == null &&
@@ -3550,7 +3550,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
                             autoLabelOffset = 1;
                         }
 
-                            // Try to insert new line characters in labels text
+                        // Try to insert new line characters in labels text
                         else if (!noWordWrap &&
                             (this.LabelAutoFitStyle & LabelAutoFitStyles.WordWrap) == LabelAutoFitStyles.WordWrap)
                         {
@@ -3633,7 +3633,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
                             }
                         }
 
-                            // Try to change font angle
+                        // Try to change font angle
                         else if (autoLabelAngle != 90 &&
                             ((this.LabelAutoFitStyle & LabelAutoFitStyles.LabelsAngleStep30) == LabelAutoFitStyles.LabelsAngleStep30 ||
                             (this.LabelAutoFitStyle & LabelAutoFitStyles.LabelsAngleStep45) == LabelAutoFitStyles.LabelsAngleStep45 ||
@@ -3659,7 +3659,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
                             }
                         }
 
-                            // Try to reduce font again
+                        // Try to reduce font again
                         else if (autoLabelFont.SizeInPoints > _minLabelFontSize &&
                             (this.LabelAutoFitStyle & LabelAutoFitStyles.DecreaseFont) == LabelAutoFitStyles.DecreaseFont)
                         {
@@ -3672,7 +3672,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
                                 GraphicsUnit.Point);
                         }
 
-                            // Failed to fit
+                        // Failed to fit
                         else
                         {
                             // Use last font
@@ -3711,14 +3711,14 @@ namespace System.Windows.Forms.DataVisualization.Charting
                     }
                 }
 
-				// Change the auto-fit angle for top and bottom axes from 90 to -90
-				if(this.AxisPosition == AxisPosition.Bottom || this.AxisPosition == AxisPosition.Top)
-				{
-					if(autoLabelAngle == 90)
-					{
-						autoLabelAngle = -90;
-					}
-				}
+                // Change the auto-fit angle for top and bottom axes from 90 to -90
+                if (this.AxisPosition == AxisPosition.Bottom || this.AxisPosition == AxisPosition.Top)
+                {
+                    if (autoLabelAngle == 90)
+                    {
+                        autoLabelAngle = -90;
+                    }
+                }
             }
 
             //*********************************************************
@@ -3790,613 +3790,613 @@ namespace System.Windows.Forms.DataVisualization.Charting
 #endif // SUBAXES
 
             // Restore previous invalidation flag
-			Common.Chart.disableInvalidates = oldDisableInvalidates;
+            Common.Chart.disableInvalidates = oldDisableInvalidates;
         }
 
-		/// <summary>
-		/// Calculates axis interval so that labels will fit most efficiently.
-		/// </summary>
-		/// <param name="chartGraph">Chart graphics.</param>
-		/// <param name="autoPlotPosition">True if plot position is auto calculated.</param>
-		/// <param name="onlyIncreaseInterval">True if interval should only be increased.</param>
-		private void AdjustIntervalToFitLabels(ChartGraphics chartGraph, bool autoPlotPosition, bool onlyIncreaseInterval)
-		{
-			// Calculates axis interval so that labels will fit most efficiently.
-			if(this.ScaleSegments.Count == 0)
-			{
-				this.AdjustIntervalToFitLabels(chartGraph, autoPlotPosition, null, onlyIncreaseInterval);
-			}
-			else
-			{
-				// Allow values to go outside the segment boundary
-				this.ScaleSegments.AllowOutOfScaleValues = true;
+        /// <summary>
+        /// Calculates axis interval so that labels will fit most efficiently.
+        /// </summary>
+        /// <param name="chartGraph">Chart graphics.</param>
+        /// <param name="autoPlotPosition">True if plot position is auto calculated.</param>
+        /// <param name="onlyIncreaseInterval">True if interval should only be increased.</param>
+        private void AdjustIntervalToFitLabels(ChartGraphics chartGraph, bool autoPlotPosition, bool onlyIncreaseInterval)
+        {
+            // Calculates axis interval so that labels will fit most efficiently.
+            if (this.ScaleSegments.Count == 0)
+            {
+                this.AdjustIntervalToFitLabels(chartGraph, autoPlotPosition, null, onlyIncreaseInterval);
+            }
+            else
+            {
+                // Allow values to go outside the segment boundary
+                this.ScaleSegments.AllowOutOfScaleValues = true;
 
-				// Adjust interval of each segment first
-				foreach(AxisScaleSegment axisScaleSegment in this.ScaleSegments)
-				{
-					this.AdjustIntervalToFitLabels(chartGraph, autoPlotPosition, axisScaleSegment, onlyIncreaseInterval);
-				}
+                // Adjust interval of each segment first
+                foreach (AxisScaleSegment axisScaleSegment in this.ScaleSegments)
+                {
+                    this.AdjustIntervalToFitLabels(chartGraph, autoPlotPosition, axisScaleSegment, onlyIncreaseInterval);
+                }
 
-				// Fill labels using new segment intervals
-				bool removeLabels = true;
-				int segmentIndex = 0;
-				ArrayList removedLabels = new ArrayList();
-				ArrayList removedLabelsIndexes = new ArrayList();
-				foreach(AxisScaleSegment scaleSegment in this.ScaleSegments)
-				{
-					scaleSegment.SetTempAxisScaleAndInterval();
-					this.FillLabels(removeLabels);
-					removeLabels = false;
-					scaleSegment.RestoreAxisScaleAndInterval();
+                // Fill labels using new segment intervals
+                bool removeLabels = true;
+                int segmentIndex = 0;
+                ArrayList removedLabels = new ArrayList();
+                ArrayList removedLabelsIndexes = new ArrayList();
+                foreach (AxisScaleSegment scaleSegment in this.ScaleSegments)
+                {
+                    scaleSegment.SetTempAxisScaleAndInterval();
+                    this.FillLabels(removeLabels);
+                    removeLabels = false;
+                    scaleSegment.RestoreAxisScaleAndInterval();
 
-					// Remove last label of all segmenst except of the last
-					if(segmentIndex < this.ScaleSegments.Count - 1 &&
-						this.CustomLabels.Count > 0)
-					{
-						// Remove label and save it in the list
-						removedLabels.Add(this.CustomLabels[this.CustomLabels.Count - 1]);
-						removedLabelsIndexes.Add(this.CustomLabels.Count - 1);
-						this.CustomLabels.RemoveAt(this.CustomLabels.Count - 1);
-					}
+                    // Remove last label of all segmenst except of the last
+                    if (segmentIndex < this.ScaleSegments.Count - 1 &&
+                        this.CustomLabels.Count > 0)
+                    {
+                        // Remove label and save it in the list
+                        removedLabels.Add(this.CustomLabels[this.CustomLabels.Count - 1]);
+                        removedLabelsIndexes.Add(this.CustomLabels.Count - 1);
+                        this.CustomLabels.RemoveAt(this.CustomLabels.Count - 1);
+                    }
 
-					++segmentIndex;
-				}
+                    ++segmentIndex;
+                }
 
-				// Check all previously removed last labels of each segment if there 
-				// is enough space to fit them
-				int reInsertedLabelsCount = 0;
-				int labelIndex = 0;
-				foreach(CustomLabel label in removedLabels)
-				{
-					// Re-insert the label
-					int labelInsertIndex = (int)removedLabelsIndexes[labelIndex] + reInsertedLabelsCount;
-					if(labelIndex < this.CustomLabels.Count)
-					{
-						this.CustomLabels.Insert(labelInsertIndex, label);
-					}
-					else
-					{
-						this.CustomLabels.Add(label);
-					}
+                // Check all previously removed last labels of each segment if there 
+                // is enough space to fit them
+                int reInsertedLabelsCount = 0;
+                int labelIndex = 0;
+                foreach (CustomLabel label in removedLabels)
+                {
+                    // Re-insert the label
+                    int labelInsertIndex = (int)removedLabelsIndexes[labelIndex] + reInsertedLabelsCount;
+                    if (labelIndex < this.CustomLabels.Count)
+                    {
+                        this.CustomLabels.Insert(labelInsertIndex, label);
+                    }
+                    else
+                    {
+                        this.CustomLabels.Add(label);
+                    }
 
-					// Check labels fit. Only horizontal or vertical fit is checked depending 
-					// on the axis orientation.
-					ArrayList labelPositions = new ArrayList();
-					bool fitDone = CheckLabelsFit(
-						chartGraph, 
-						this.markSize + this.scrollBarSize + this.titleSize, 
-						autoPlotPosition,
-						true,
-						false,
-						(this.AxisPosition == AxisPosition.Left || this.AxisPosition == AxisPosition.Right) ? false : true,
-						(this.AxisPosition == AxisPosition.Left || this.AxisPosition == AxisPosition.Right) ? true : false,
-						labelPositions);
+                    // Check labels fit. Only horizontal or vertical fit is checked depending 
+                    // on the axis orientation.
+                    ArrayList labelPositions = new ArrayList();
+                    bool fitDone = CheckLabelsFit(
+                        chartGraph,
+                        this.markSize + this.scrollBarSize + this.titleSize,
+                        autoPlotPosition,
+                        true,
+                        false,
+                        (this.AxisPosition == AxisPosition.Left || this.AxisPosition == AxisPosition.Right) ? false : true,
+                        (this.AxisPosition == AxisPosition.Left || this.AxisPosition == AxisPosition.Right) ? true : false,
+                        labelPositions);
 
-					// If labels fit check if any of the label positions overlap
-					if(fitDone)
-					{
-						for(int index = 0; fitDone && index < labelPositions.Count; index++)
-						{
-							RectangleF rect1 = (RectangleF)labelPositions[index];
-							for(int index2 = index + 1; fitDone && index2 < labelPositions.Count; index2++)
-							{
-								RectangleF rect2 = (RectangleF)labelPositions[index2];
-								if(rect1.IntersectsWith(rect2))
-								{
-									fitDone = false;
-								}
-							}
-						}
-					}
+                    // If labels fit check if any of the label positions overlap
+                    if (fitDone)
+                    {
+                        for (int index = 0; fitDone && index < labelPositions.Count; index++)
+                        {
+                            RectangleF rect1 = (RectangleF)labelPositions[index];
+                            for (int index2 = index + 1; fitDone && index2 < labelPositions.Count; index2++)
+                            {
+                                RectangleF rect2 = (RectangleF)labelPositions[index2];
+                                if (rect1.IntersectsWith(rect2))
+                                {
+                                    fitDone = false;
+                                }
+                            }
+                        }
+                    }
 
-					// If labels do not fit or overlapp - remove completly
-					if(!fitDone)
-					{
-						this.CustomLabels.RemoveAt(labelInsertIndex);
-					}
-					else
-					{
-						++reInsertedLabelsCount;
-					}
+                    // If labels do not fit or overlapp - remove completly
+                    if (!fitDone)
+                    {
+                        this.CustomLabels.RemoveAt(labelInsertIndex);
+                    }
+                    else
+                    {
+                        ++reInsertedLabelsCount;
+                    }
 
-					++labelIndex;
-				}
+                    ++labelIndex;
+                }
 
-				// Make sure now values are rounded on segment boundary
-				this.ScaleSegments.AllowOutOfScaleValues = false;
-			}
-		}
+                // Make sure now values are rounded on segment boundary
+                this.ScaleSegments.AllowOutOfScaleValues = false;
+            }
+        }
 
-		/// <summary>
-		/// Checks if variable count labels mode is enabled.
-		/// </summary>
-		/// <returns>True if variable count labels mode is enabled.</returns>
-		private bool IsVariableLabelCountModeEnabled()
-		{
-			// Make sure the variable interval mode is enabled and
-			// no custom label interval used.
-			if( (this.IntervalAutoMode == IntervalAutoMode.VariableCount || this.ScaleSegments.Count > 0) &&
-				!this.IsLogarithmic &&
-				(this.tempLabelInterval <= 0.0 || (double.IsNaN(this.tempLabelInterval) && this.Interval <= 0.0)) )
-			{
-				// This feature is not supported for charts that do not
-				// require X and Y axes (Pie, Radar, ...)
-				if(!ChartArea.requireAxes)
-				{
-					return false;
-				}
+        /// <summary>
+        /// Checks if variable count labels mode is enabled.
+        /// </summary>
+        /// <returns>True if variable count labels mode is enabled.</returns>
+        private bool IsVariableLabelCountModeEnabled()
+        {
+            // Make sure the variable interval mode is enabled and
+            // no custom label interval used.
+            if ((this.IntervalAutoMode == IntervalAutoMode.VariableCount || this.ScaleSegments.Count > 0) &&
+                !this.IsLogarithmic &&
+                (this.tempLabelInterval <= 0.0 || (double.IsNaN(this.tempLabelInterval) && this.Interval <= 0.0)))
+            {
+                // This feature is not supported for charts that do not
+                // require X and Y axes (Pie, Radar, ...)
+                if (!ChartArea.requireAxes)
+                {
+                    return false;
+                }
                 // This feature is not supported if the axis doesn't have data range 
                 if (Double.IsNaN(this.minimum) || Double.IsNaN(this.maximum))
                 {
                     return false;
                 }
-				// Check if custom labels are used in the first row
-				bool customLabels = false;
-				foreach(CustomLabel label in this.CustomLabels)
-				{
-					if(label.customLabel && label.RowIndex == 0)
-					{
-						customLabels = true;
-						break;
-					}
-				}
+                // Check if custom labels are used in the first row
+                bool customLabels = false;
+                foreach (CustomLabel label in this.CustomLabels)
+                {
+                    if (label.customLabel && label.RowIndex == 0)
+                    {
+                        customLabels = true;
+                        break;
+                    }
+                }
 
-				// Proceed only if no custom labels are used in the first row
-				if(!customLabels)
-				{
-					return true;
-				}
-			}
+                // Proceed only if no custom labels are used in the first row
+                if (!customLabels)
+                {
+                    return true;
+                }
+            }
 
-			return false;
-		}
+            return false;
+        }
 
-		/// <summary>
-		/// Calculates axis interval so that labels will fit most efficiently.
-		/// </summary>
-		/// <param name="chartGraph">Chart graphics.</param>
-		/// <param name="autoPlotPosition">True if plot position is auto calculated.</param>
-		/// <param name="axisScaleSegment">Axis scale segment to process.</param>
-		/// <param name="onlyIncreaseInterval">True if interval should only be increased.</param>
-		private void AdjustIntervalToFitLabels(
-			ChartGraphics chartGraph, 
-			bool autoPlotPosition, 
-			AxisScaleSegment axisScaleSegment,
-			bool onlyIncreaseInterval)
-		{
-			// Re-fill the labels just for the scale segment provided
-			if(axisScaleSegment != null)
-			{
-				// Re-fill new axis labels
-				if(this.tempLabels != null)
-				{
-					this.CustomLabels.Clear();
-					foreach( CustomLabel label in this.tempLabels )
-					{
-						this.CustomLabels.Add(label.Clone());
-					}
-				}
+        /// <summary>
+        /// Calculates axis interval so that labels will fit most efficiently.
+        /// </summary>
+        /// <param name="chartGraph">Chart graphics.</param>
+        /// <param name="autoPlotPosition">True if plot position is auto calculated.</param>
+        /// <param name="axisScaleSegment">Axis scale segment to process.</param>
+        /// <param name="onlyIncreaseInterval">True if interval should only be increased.</param>
+        private void AdjustIntervalToFitLabels(
+            ChartGraphics chartGraph,
+            bool autoPlotPosition,
+            AxisScaleSegment axisScaleSegment,
+            bool onlyIncreaseInterval)
+        {
+            // Re-fill the labels just for the scale segment provided
+            if (axisScaleSegment != null)
+            {
+                // Re-fill new axis labels
+                if (this.tempLabels != null)
+                {
+                    this.CustomLabels.Clear();
+                    foreach (CustomLabel label in this.tempLabels)
+                    {
+                        this.CustomLabels.Add(label.Clone());
+                    }
+                }
 
-				// Fill labels just for the segment
-				axisScaleSegment.SetTempAxisScaleAndInterval();
-				this.FillLabels( true );
-				axisScaleSegment.RestoreAxisScaleAndInterval();
-			}
+                // Fill labels just for the segment
+                axisScaleSegment.SetTempAxisScaleAndInterval();
+                this.FillLabels(true);
+                axisScaleSegment.RestoreAxisScaleAndInterval();
+            }
 
-			// Calculate minimum interval size
-			double minIntervalSzie = double.NaN;
-			ArrayList axisSeries = AxisScaleBreakStyle.GetAxisSeries(this);
-			foreach(Series series in axisSeries)
-			{
-				if(this.axisType == AxisName.X || this.axisType == AxisName.X2)
-				{
-					if(ChartHelper.IndexedSeries(series))
-					{
-						minIntervalSzie = 1.0;
-					}
-					else if(series.XValueType == ChartValueType.String || 
-						series.XValueType == ChartValueType.Int32 || 
-						series.XValueType == ChartValueType.UInt32 || 
-						series.XValueType == ChartValueType.UInt64 ||
-						series.XValueType == ChartValueType.Int64 )
-					{
-						minIntervalSzie = 1.0;
-					}
-				}
-				else
-				{
-					if(series.YValueType == ChartValueType.String || 
-						series.YValueType == ChartValueType.Int32 || 
-						series.YValueType == ChartValueType.UInt32 || 
-						series.YValueType == ChartValueType.UInt64 ||
-						series.YValueType == ChartValueType.Int64 )
-					{
-						minIntervalSzie = 1.0;
-					}
-				}
-			}
+            // Calculate minimum interval size
+            double minIntervalSzie = double.NaN;
+            ArrayList axisSeries = AxisScaleBreakStyle.GetAxisSeries(this);
+            foreach (Series series in axisSeries)
+            {
+                if (this.axisType == AxisName.X || this.axisType == AxisName.X2)
+                {
+                    if (ChartHelper.IndexedSeries(series))
+                    {
+                        minIntervalSzie = 1.0;
+                    }
+                    else if (series.XValueType == ChartValueType.String ||
+                        series.XValueType == ChartValueType.Int32 ||
+                        series.XValueType == ChartValueType.UInt32 ||
+                        series.XValueType == ChartValueType.UInt64 ||
+                        series.XValueType == ChartValueType.Int64)
+                    {
+                        minIntervalSzie = 1.0;
+                    }
+                }
+                else
+                {
+                    if (series.YValueType == ChartValueType.String ||
+                        series.YValueType == ChartValueType.Int32 ||
+                        series.YValueType == ChartValueType.UInt32 ||
+                        series.YValueType == ChartValueType.UInt64 ||
+                        series.YValueType == ChartValueType.Int64)
+                    {
+                        minIntervalSzie = 1.0;
+                    }
+                }
+            }
 
 
-			// Iterate while interval is not found
-			bool firstIteration = true;
-			bool increaseNumberOfLabels = true;
-			double currentInterval = (axisScaleSegment == null) ? this.labelStyle.GetInterval() : axisScaleSegment.Interval;
-			DateTimeIntervalType currentIntervalType = (axisScaleSegment == null) ? this.labelStyle.GetIntervalType() : axisScaleSegment.IntervalType;
-			DateTimeIntervalType lastFitIntervalType = currentIntervalType;
-			double lastFitInterval = currentInterval;
-			ArrayList lastFitLabels = new ArrayList();
-			bool intervalFound = false;
-			int iterationNumber = 0;
-			while(!intervalFound && iterationNumber <= 1000)
-			{
-				bool fillNewLabels = true;
+            // Iterate while interval is not found
+            bool firstIteration = true;
+            bool increaseNumberOfLabels = true;
+            double currentInterval = (axisScaleSegment == null) ? this.labelStyle.GetInterval() : axisScaleSegment.Interval;
+            DateTimeIntervalType currentIntervalType = (axisScaleSegment == null) ? this.labelStyle.GetIntervalType() : axisScaleSegment.IntervalType;
+            DateTimeIntervalType lastFitIntervalType = currentIntervalType;
+            double lastFitInterval = currentInterval;
+            ArrayList lastFitLabels = new ArrayList();
+            bool intervalFound = false;
+            int iterationNumber = 0;
+            while (!intervalFound && iterationNumber <= 1000)
+            {
+                bool fillNewLabels = true;
 #if DEBUG
-				if(iterationNumber >= 999)
-				{
+                if (iterationNumber >= 999)
+                {
                     throw (new InvalidOperationException(SR.ExceptionAxisDynamicIntervalCalculationFailed));
-				}
+                }
 #endif // DEBUG
 
-				// Check labels fit. Only horizontal or vertical fit is checked depending 
-				// on the axis orientation.
-				bool fitDone = CheckLabelsFit(
-					chartGraph, 
-					this.markSize + this.scrollBarSize + this.titleSize, 
-					autoPlotPosition,
-					true,
-					false,
-					(this.AxisPosition == AxisPosition.Left || this.AxisPosition == AxisPosition.Right) ? false : true,
-					(this.AxisPosition == AxisPosition.Left || this.AxisPosition == AxisPosition.Right) ? true : false,
-					null);
+                // Check labels fit. Only horizontal or vertical fit is checked depending 
+                // on the axis orientation.
+                bool fitDone = CheckLabelsFit(
+                    chartGraph,
+                    this.markSize + this.scrollBarSize + this.titleSize,
+                    autoPlotPosition,
+                    true,
+                    false,
+                    (this.AxisPosition == AxisPosition.Left || this.AxisPosition == AxisPosition.Right) ? false : true,
+                    (this.AxisPosition == AxisPosition.Left || this.AxisPosition == AxisPosition.Right) ? true : false,
+                    null);
 
-				// Check if we need to increase or reduce number of labels
-				if(firstIteration)
-				{
-					firstIteration = false;
-					increaseNumberOfLabels = (fitDone) ? true : false;
+                // Check if we need to increase or reduce number of labels
+                if (firstIteration)
+                {
+                    firstIteration = false;
+                    increaseNumberOfLabels = (fitDone) ? true : false;
 
-					// Check if we can decrease the interva;
-					if(onlyIncreaseInterval && increaseNumberOfLabels)
-					{
-						intervalFound = true;
-						continue;
-					}
-				}
+                    // Check if we can decrease the interva;
+                    if (onlyIncreaseInterval && increaseNumberOfLabels)
+                    {
+                        intervalFound = true;
+                        continue;
+                    }
+                }
 
-				// Find new interval. Value 0.0 means that interval cannot be
-				// reduced/increased any more and current interval should be used
-				double newInterval = 0.0;
-				DateTimeIntervalType newIntervalType = DateTimeIntervalType.Number;
-				if(increaseNumberOfLabels)
-				{
-					if(fitDone)
-					{
-						// Make a copy of last interval and labels collection that previously fit
-						lastFitInterval = currentInterval;
-						lastFitIntervalType = currentIntervalType;
-						lastFitLabels.Clear();
-						foreach(CustomLabel label in this.CustomLabels)
-						{
-							lastFitLabels.Add(label);
-						}
+                // Find new interval. Value 0.0 means that interval cannot be
+                // reduced/increased any more and current interval should be used
+                double newInterval = 0.0;
+                DateTimeIntervalType newIntervalType = DateTimeIntervalType.Number;
+                if (increaseNumberOfLabels)
+                {
+                    if (fitDone)
+                    {
+                        // Make a copy of last interval and labels collection that previously fit
+                        lastFitInterval = currentInterval;
+                        lastFitIntervalType = currentIntervalType;
+                        lastFitLabels.Clear();
+                        foreach (CustomLabel label in this.CustomLabels)
+                        {
+                            lastFitLabels.Add(label);
+                        }
 
-						newIntervalType = currentIntervalType;
-						newInterval = this.ReduceLabelInterval(
-							currentInterval, 
-							minIntervalSzie, 
-							ref newIntervalType);
-					}
-					else
-					{
-						newInterval = lastFitInterval;
-						newIntervalType = lastFitIntervalType;
-						intervalFound = true;
+                        newIntervalType = currentIntervalType;
+                        newInterval = this.ReduceLabelInterval(
+                            currentInterval,
+                            minIntervalSzie,
+                            ref newIntervalType);
+                    }
+                    else
+                    {
+                        newInterval = lastFitInterval;
+                        newIntervalType = lastFitIntervalType;
+                        intervalFound = true;
 
-						// Reuse previously saved labels
-						fillNewLabels = false;
-						this.CustomLabels.Clear();
-						foreach(CustomLabel label in lastFitLabels)
-						{
-							this.CustomLabels.Add(label);
-						}
+                        // Reuse previously saved labels
+                        fillNewLabels = false;
+                        this.CustomLabels.Clear();
+                        foreach (CustomLabel label in lastFitLabels)
+                        {
+                            this.CustomLabels.Add(label);
+                        }
 
-					}
-				}
-				else
-				{
-					if(!fitDone && this.CustomLabels.Count > 1)
-					{
-						newIntervalType = currentIntervalType;
-						newInterval = this.IncreaseLabelInterval(
-							currentInterval, 
-							ref newIntervalType);
-					}
-					else
-					{
-						intervalFound = true;
-					}
-				}
+                    }
+                }
+                else
+                {
+                    if (!fitDone && this.CustomLabels.Count > 1)
+                    {
+                        newIntervalType = currentIntervalType;
+                        newInterval = this.IncreaseLabelInterval(
+                            currentInterval,
+                            ref newIntervalType);
+                    }
+                    else
+                    {
+                        intervalFound = true;
+                    }
+                }
 
-				// Set new interval
-				if(newInterval != 0.0)
-				{
-					currentInterval = newInterval;
-					currentIntervalType = newIntervalType;
+                // Set new interval
+                if (newInterval != 0.0)
+                {
+                    currentInterval = newInterval;
+                    currentIntervalType = newIntervalType;
 
-					if(axisScaleSegment == null)
-					{
-						this.SetIntervalAndType(newInterval, newIntervalType);
-					}
-					else
-					{
-						axisScaleSegment.Interval = newInterval;
-						axisScaleSegment.IntervalType = newIntervalType;
-					}
+                    if (axisScaleSegment == null)
+                    {
+                        this.SetIntervalAndType(newInterval, newIntervalType);
+                    }
+                    else
+                    {
+                        axisScaleSegment.Interval = newInterval;
+                        axisScaleSegment.IntervalType = newIntervalType;
+                    }
 
-					// Re-fill new axis labels
-					if(fillNewLabels)
-					{
-						if(this.tempLabels != null)
-						{
-							this.CustomLabels.Clear();
-							foreach( CustomLabel label in this.tempLabels )
-							{
-								CustomLabels.Add(label.Clone());
-							}
-						}
-					
-						if(axisScaleSegment == null)
-						{
-							this.FillLabels(true);
-						}
-						else
-						{
-							axisScaleSegment.SetTempAxisScaleAndInterval();
-							this.FillLabels( true );
-							axisScaleSegment.RestoreAxisScaleAndInterval();
-						}
-					}
-				}
-				else
-				{
-					intervalFound = true;
-				}
-			
-				++iterationNumber;
-			}
-		}
+                    // Re-fill new axis labels
+                    if (fillNewLabels)
+                    {
+                        if (this.tempLabels != null)
+                        {
+                            this.CustomLabels.Clear();
+                            foreach (CustomLabel label in this.tempLabels)
+                            {
+                                CustomLabels.Add(label.Clone());
+                            }
+                        }
 
-		/// <summary>
-		/// Reduces current label interval, so that more labels can fit.
-		/// </summary>
-		/// <param name="oldInterval">An interval to reduce.</param>
-		/// <param name="minInterval">Minimum interval size.</param>
+                        if (axisScaleSegment == null)
+                        {
+                            this.FillLabels(true);
+                        }
+                        else
+                        {
+                            axisScaleSegment.SetTempAxisScaleAndInterval();
+                            this.FillLabels(true);
+                            axisScaleSegment.RestoreAxisScaleAndInterval();
+                        }
+                    }
+                }
+                else
+                {
+                    intervalFound = true;
+                }
+
+                ++iterationNumber;
+            }
+        }
+
+        /// <summary>
+        /// Reduces current label interval, so that more labels can fit.
+        /// </summary>
+        /// <param name="oldInterval">An interval to reduce.</param>
+        /// <param name="minInterval">Minimum interval size.</param>
         /// <param name="axisIntervalType">Interval type.</param>
-		/// <returns>New interval or 0.0 if interval cannot be reduced.</returns>
-		private double ReduceLabelInterval(
-			double oldInterval, 
-			double minInterval,
-			ref DateTimeIntervalType axisIntervalType)
-		{
-			double newInterval = oldInterval;
+        /// <returns>New interval or 0.0 if interval cannot be reduced.</returns>
+        private double ReduceLabelInterval(
+            double oldInterval,
+            double minInterval,
+            ref DateTimeIntervalType axisIntervalType)
+        {
+            double newInterval = oldInterval;
 
-			// Calculate rounded interval value
-			double range = this.maximum - this.minimum;
-			int iterationIndex = 0;
-			if( axisIntervalType == DateTimeIntervalType.Auto ||
-				axisIntervalType == DateTimeIntervalType.NotSet ||
-				axisIntervalType == DateTimeIntervalType.Number)
-			{
-				// Process numeric scale
-				double devider = 2.0;
-				do
-				{
+            // Calculate rounded interval value
+            double range = this.maximum - this.minimum;
+            int iterationIndex = 0;
+            if (axisIntervalType == DateTimeIntervalType.Auto ||
+                axisIntervalType == DateTimeIntervalType.NotSet ||
+                axisIntervalType == DateTimeIntervalType.Number)
+            {
+                // Process numeric scale
+                double devider = 2.0;
+                do
+                {
 #if DEBUG
-					if(iterationIndex >= 99)
-					{
+                    if (iterationIndex >= 99)
+                    {
                         throw (new InvalidOperationException(SR.ExceptionAxisIntervalDecreasingFailed));
-					}
+                    }
 #endif // DEBUG
 
-					newInterval = CalcInterval( range / (range / (newInterval / devider)) );
-					if(newInterval == oldInterval)
-					{
-						devider *= 2.0;
-					}
+                    newInterval = CalcInterval(range / (range / (newInterval / devider)));
+                    if (newInterval == oldInterval)
+                    {
+                        devider *= 2.0;
+                    }
 
-					++iterationIndex;
-				} while(newInterval == oldInterval && iterationIndex <= 100);
-			}
-			else
-			{
-				// Process date scale
-				if(oldInterval > 1.0 || oldInterval < 1.0)
-				{
-					if( axisIntervalType == DateTimeIntervalType.Minutes || 
-						axisIntervalType == DateTimeIntervalType.Seconds)
-					{
-						if(oldInterval >= 60)
-						{
-							newInterval = Math.Round(oldInterval / 2.0);
-						}
-						else if(oldInterval >= 30.0)
-						{
-							newInterval = 15.0;
-						}
-						else if(oldInterval >= 15.0)
-						{
-							newInterval = 5.0;
-						}
-						else if(oldInterval >= 5.0)
-						{
-							newInterval = 1.0;
-						}
-					}
-					else
-					{
-						newInterval = Math.Round(oldInterval / 2.0);
-					}
-					if(newInterval < 1.0)
-					{
-						newInterval = 1.0;
-					}
-				}
-				if(oldInterval == 1.0)
-				{
-					if(axisIntervalType == DateTimeIntervalType.Years)
-					{
-						newInterval = 6.0;
-						axisIntervalType = DateTimeIntervalType.Months;
-					}
-					else if(axisIntervalType == DateTimeIntervalType.Months)
-					{
-						newInterval = 2.0;
-						axisIntervalType = DateTimeIntervalType.Weeks;
-					}
-					else if(axisIntervalType == DateTimeIntervalType.Weeks)
-					{
-						newInterval = 2.0;
-						axisIntervalType = DateTimeIntervalType.Days;
-					}
-					else if(axisIntervalType == DateTimeIntervalType.Days)
-					{
-						newInterval = 12.0;
-						axisIntervalType = DateTimeIntervalType.Hours;
-					}
-					else if(axisIntervalType == DateTimeIntervalType.Hours)
-					{
-						newInterval = 30.0;
-						axisIntervalType = DateTimeIntervalType.Minutes;
-					}
-					else if(axisIntervalType == DateTimeIntervalType.Minutes)
-					{
-						newInterval = 30.0;
-						axisIntervalType = DateTimeIntervalType.Seconds;
-					}
-					else if(axisIntervalType == DateTimeIntervalType.Seconds)
-					{
-						newInterval = 100.0;
-						axisIntervalType = DateTimeIntervalType.Milliseconds;
-					}
-				}
-			}
+                    ++iterationIndex;
+                } while (newInterval == oldInterval && iterationIndex <= 100);
+            }
+            else
+            {
+                // Process date scale
+                if (oldInterval > 1.0 || oldInterval < 1.0)
+                {
+                    if (axisIntervalType == DateTimeIntervalType.Minutes ||
+                        axisIntervalType == DateTimeIntervalType.Seconds)
+                    {
+                        if (oldInterval >= 60)
+                        {
+                            newInterval = Math.Round(oldInterval / 2.0);
+                        }
+                        else if (oldInterval >= 30.0)
+                        {
+                            newInterval = 15.0;
+                        }
+                        else if (oldInterval >= 15.0)
+                        {
+                            newInterval = 5.0;
+                        }
+                        else if (oldInterval >= 5.0)
+                        {
+                            newInterval = 1.0;
+                        }
+                    }
+                    else
+                    {
+                        newInterval = Math.Round(oldInterval / 2.0);
+                    }
+                    if (newInterval < 1.0)
+                    {
+                        newInterval = 1.0;
+                    }
+                }
+                if (oldInterval == 1.0)
+                {
+                    if (axisIntervalType == DateTimeIntervalType.Years)
+                    {
+                        newInterval = 6.0;
+                        axisIntervalType = DateTimeIntervalType.Months;
+                    }
+                    else if (axisIntervalType == DateTimeIntervalType.Months)
+                    {
+                        newInterval = 2.0;
+                        axisIntervalType = DateTimeIntervalType.Weeks;
+                    }
+                    else if (axisIntervalType == DateTimeIntervalType.Weeks)
+                    {
+                        newInterval = 2.0;
+                        axisIntervalType = DateTimeIntervalType.Days;
+                    }
+                    else if (axisIntervalType == DateTimeIntervalType.Days)
+                    {
+                        newInterval = 12.0;
+                        axisIntervalType = DateTimeIntervalType.Hours;
+                    }
+                    else if (axisIntervalType == DateTimeIntervalType.Hours)
+                    {
+                        newInterval = 30.0;
+                        axisIntervalType = DateTimeIntervalType.Minutes;
+                    }
+                    else if (axisIntervalType == DateTimeIntervalType.Minutes)
+                    {
+                        newInterval = 30.0;
+                        axisIntervalType = DateTimeIntervalType.Seconds;
+                    }
+                    else if (axisIntervalType == DateTimeIntervalType.Seconds)
+                    {
+                        newInterval = 100.0;
+                        axisIntervalType = DateTimeIntervalType.Milliseconds;
+                    }
+                }
+            }
 
 
-			// Make sure interal is not less than min interval specified
-			if(!double.IsNaN(minInterval) && newInterval < minInterval)
-			{
-				newInterval = 0.0;
-			}
+            // Make sure interal is not less than min interval specified
+            if (!double.IsNaN(minInterval) && newInterval < minInterval)
+            {
+                newInterval = 0.0;
+            }
 
-			return newInterval;
-		}
+            return newInterval;
+        }
 
-		/// <summary>
-		/// Increases current label interval, so that less labels fit.
-		/// </summary>
-		/// <param name="oldInterval">An interval to increase.</param>
+        /// <summary>
+        /// Increases current label interval, so that less labels fit.
+        /// </summary>
+        /// <param name="oldInterval">An interval to increase.</param>
         /// <param name="axisIntervalType">Interval type.</param>
-		/// <returns>New interval or 0.0 if interval cannot be increased.</returns>
-		private double IncreaseLabelInterval(
-			double oldInterval,  
-			ref DateTimeIntervalType axisIntervalType)
-		{
-			double newInterval = oldInterval;
-			
-			// Calculate rounded interval value
-			double range = this.maximum - this.minimum;
-			int iterationIndex = 0;
-			if( axisIntervalType == DateTimeIntervalType.Auto ||
-				axisIntervalType == DateTimeIntervalType.NotSet ||
-				axisIntervalType == DateTimeIntervalType.Number)
-			{
-				// Process numeric scale
-				double devider = 2.0;
-				do
-				{
+        /// <returns>New interval or 0.0 if interval cannot be increased.</returns>
+        private double IncreaseLabelInterval(
+            double oldInterval,
+            ref DateTimeIntervalType axisIntervalType)
+        {
+            double newInterval = oldInterval;
+
+            // Calculate rounded interval value
+            double range = this.maximum - this.minimum;
+            int iterationIndex = 0;
+            if (axisIntervalType == DateTimeIntervalType.Auto ||
+                axisIntervalType == DateTimeIntervalType.NotSet ||
+                axisIntervalType == DateTimeIntervalType.Number)
+            {
+                // Process numeric scale
+                double devider = 2.0;
+                do
+                {
 #if DEBUG
-					if(iterationIndex >= 99)
-					{
+                    if (iterationIndex >= 99)
+                    {
                         throw (new InvalidOperationException(SR.ExceptionAxisIntervalIncreasingFailed));
-					}
+                    }
 #endif // DEBUG
 
-					newInterval = CalcInterval( range / (range / (newInterval * devider)) );
-					if(newInterval == oldInterval)
-					{
-						devider *= 2.0;
-					}
-					++iterationIndex;
-				} while(newInterval == oldInterval && iterationIndex <= 100);
-			}
-			else
-			{
-				// Process date scale
-				newInterval = oldInterval * 2.0;
-				if(axisIntervalType == DateTimeIntervalType.Years)
-				{
-					// Do nothing for years
-				}
-				else if(axisIntervalType == DateTimeIntervalType.Months)
-				{
-					if(newInterval >= 12.0)
-					{
-						newInterval = 1.0;
-						axisIntervalType = DateTimeIntervalType.Years;
-					}
-				}
-				else if(axisIntervalType == DateTimeIntervalType.Weeks)
-				{
-					if(newInterval >= 4.0)
-					{
-						newInterval = 1.0;
-						axisIntervalType = DateTimeIntervalType.Months;
-					}
-				}
-				else if(axisIntervalType == DateTimeIntervalType.Days)
-				{
-					if(newInterval >= 7.0)
-					{
-						newInterval = 1.0;
-						axisIntervalType = DateTimeIntervalType.Weeks;
-					}
-				}
-				else if(axisIntervalType == DateTimeIntervalType.Hours)
-				{
-					if(newInterval >= 60.0)
-					{
-						newInterval = 1.0;
-						axisIntervalType = DateTimeIntervalType.Days;
-					}
-				}
-				else if(axisIntervalType == DateTimeIntervalType.Minutes)
-				{
-					if(newInterval >= 60.0)
-					{
-						newInterval = 1.0;
-						axisIntervalType = DateTimeIntervalType.Hours;
-					}
-				}
-				else if(axisIntervalType == DateTimeIntervalType.Seconds)
-				{
-					if(newInterval >= 60.0)
-					{
-						newInterval = 1.0;
-						axisIntervalType = DateTimeIntervalType.Minutes;
-					}
-				}
-				else if(axisIntervalType == DateTimeIntervalType.Milliseconds)
-				{
-					if(newInterval >= 1000.0)
-					{
-						newInterval = 1.0;
-						axisIntervalType = DateTimeIntervalType.Seconds;
-					}
-				}
-			}
+                    newInterval = CalcInterval(range / (range / (newInterval * devider)));
+                    if (newInterval == oldInterval)
+                    {
+                        devider *= 2.0;
+                    }
+                    ++iterationIndex;
+                } while (newInterval == oldInterval && iterationIndex <= 100);
+            }
+            else
+            {
+                // Process date scale
+                newInterval = oldInterval * 2.0;
+                if (axisIntervalType == DateTimeIntervalType.Years)
+                {
+                    // Do nothing for years
+                }
+                else if (axisIntervalType == DateTimeIntervalType.Months)
+                {
+                    if (newInterval >= 12.0)
+                    {
+                        newInterval = 1.0;
+                        axisIntervalType = DateTimeIntervalType.Years;
+                    }
+                }
+                else if (axisIntervalType == DateTimeIntervalType.Weeks)
+                {
+                    if (newInterval >= 4.0)
+                    {
+                        newInterval = 1.0;
+                        axisIntervalType = DateTimeIntervalType.Months;
+                    }
+                }
+                else if (axisIntervalType == DateTimeIntervalType.Days)
+                {
+                    if (newInterval >= 7.0)
+                    {
+                        newInterval = 1.0;
+                        axisIntervalType = DateTimeIntervalType.Weeks;
+                    }
+                }
+                else if (axisIntervalType == DateTimeIntervalType.Hours)
+                {
+                    if (newInterval >= 60.0)
+                    {
+                        newInterval = 1.0;
+                        axisIntervalType = DateTimeIntervalType.Days;
+                    }
+                }
+                else if (axisIntervalType == DateTimeIntervalType.Minutes)
+                {
+                    if (newInterval >= 60.0)
+                    {
+                        newInterval = 1.0;
+                        axisIntervalType = DateTimeIntervalType.Hours;
+                    }
+                }
+                else if (axisIntervalType == DateTimeIntervalType.Seconds)
+                {
+                    if (newInterval >= 60.0)
+                    {
+                        newInterval = 1.0;
+                        axisIntervalType = DateTimeIntervalType.Minutes;
+                    }
+                }
+                else if (axisIntervalType == DateTimeIntervalType.Milliseconds)
+                {
+                    if (newInterval >= 1000.0)
+                    {
+                        newInterval = 1.0;
+                        axisIntervalType = DateTimeIntervalType.Seconds;
+                    }
+                }
+            }
 
-			return newInterval;
-		}
+            return newInterval;
+        }
 
         /// <summary>
         /// Finds the longest labels with the space and inserts the new line character.
@@ -4510,15 +4510,15 @@ namespace System.Windows.Forms.DataVisualization.Charting
                 return;
             }
 
-			// Set minimum font size
-			_minLabelFontSize = Math.Min(this.LabelAutoFitMinFontSize, this.LabelAutoFitMaxFontSize);
+            // Set minimum font size
+            _minLabelFontSize = Math.Min(this.LabelAutoFitMinFontSize, this.LabelAutoFitMaxFontSize);
 
             // Create new auto-fit font
             this.autoLabelFont = Common.Chart.chartPicture.FontCache.GetFont(
                 this.LabelStyle.Font.FontFamily,
-				Math.Max(this.LabelAutoFitMaxFontSize, this.LabelAutoFitMinFontSize),
+                Math.Max(this.LabelAutoFitMaxFontSize, this.LabelAutoFitMinFontSize),
                 this.LabelStyle.Font.Style,
-				GraphicsUnit.Point);
+                GraphicsUnit.Point);
 
             // Check if we allowed to increase font size while auto-fitting
             if ((this.LabelAutoFitStyle & LabelAutoFitStyles.IncreaseFont) != LabelAutoFitStyles.IncreaseFont)
@@ -4552,9 +4552,9 @@ namespace System.Windows.Forms.DataVisualization.Charting
                         (this.LabelAutoFitStyle & LabelAutoFitStyles.DecreaseFont) == LabelAutoFitStyles.DecreaseFont)
                     {
                         autoLabelFont = Common.Chart.chartPicture.FontCache.GetFont(
-                            autoLabelFont.FontFamily, 
-                            autoLabelFont.SizeInPoints - 1, 
-                            autoLabelFont.Style, 
+                            autoLabelFont.FontFamily,
+                            autoLabelFont.SizeInPoints - 1,
+                            autoLabelFont.Style,
                             GraphicsUnit.Point);
 
                     }
@@ -4774,46 +4774,46 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
 
 
-			// Make sure the variable interval mode is enabled
-			if( this.Enabled != AxisEnabled.False &&
-				this.LabelStyle.Enabled &&
-				this.IsVariableLabelCountModeEnabled() )
-			{
-				// Set font for labels fitting
-				if(this.autoLabelFont == null) 
-				{
-					this.autoLabelFont = this.LabelStyle.Font;
-				}
+            // Make sure the variable interval mode is enabled
+            if (this.Enabled != AxisEnabled.False &&
+                this.LabelStyle.Enabled &&
+                this.IsVariableLabelCountModeEnabled())
+            {
+                // Set font for labels fitting
+                if (this.autoLabelFont == null)
+                {
+                    this.autoLabelFont = this.LabelStyle.Font;
+                }
 
-				// Reset angle and stagged flag used in the auto-fitting algorithm
-				if(this.autoLabelAngle < 0)
-				{
-					this.autoLabelAngle = this.LabelStyle.Angle;
-				}
-				if(this.autoLabelOffset < 0)
-				{
-					this.autoLabelOffset = (this.LabelStyle.IsStaggered) ? 1 : 0;
-				}
+                // Reset angle and stagged flag used in the auto-fitting algorithm
+                if (this.autoLabelAngle < 0)
+                {
+                    this.autoLabelAngle = this.LabelStyle.Angle;
+                }
+                if (this.autoLabelOffset < 0)
+                {
+                    this.autoLabelOffset = (this.LabelStyle.IsStaggered) ? 1 : 0;
+                }
 
-				// Check labels fit
-				bool fitDone = CheckLabelsFit(
-					chartGraph, 
-					this.markSize + this.scrollBarSize + this.titleSize, 
-					autoPlotPosition,
-					true,
-					true,
-					(this.AxisPosition == AxisPosition.Left || this.AxisPosition == AxisPosition.Right) ? false : true,
-					(this.AxisPosition == AxisPosition.Left || this.AxisPosition == AxisPosition.Right) ? true : false,
-					null);
+                // Check labels fit
+                bool fitDone = CheckLabelsFit(
+                    chartGraph,
+                    this.markSize + this.scrollBarSize + this.titleSize,
+                    autoPlotPosition,
+                    true,
+                    true,
+                    (this.AxisPosition == AxisPosition.Left || this.AxisPosition == AxisPosition.Right) ? false : true,
+                    (this.AxisPosition == AxisPosition.Left || this.AxisPosition == AxisPosition.Right) ? true : false,
+                    null);
 
-				// If there is a problem fitting labels try to reduce number of labels by
-				// increasing of the interval.
-				if(!fitDone)
-				{
-					// Adjust interval
-					this.AdjustIntervalToFitLabels(chartGraph, autoPlotPosition, true);
-				}
-			}
+                // If there is a problem fitting labels try to reduce number of labels by
+                // increasing of the interval.
+                if (!fitDone)
+                {
+                    // Adjust interval
+                    this.AdjustIntervalToFitLabels(chartGraph, autoPlotPosition, true);
+                }
+            }
 
 
 
@@ -5242,7 +5242,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
                         {
                             SizeF imageAbsSize = new SizeF();
 
-                            if(this.Common.ImageLoader.GetAdjustedImageSize(label.Image, chartGraph.Graphics, ref imageAbsSize))
+                            if (this.Common.ImageLoader.GetAdjustedImageSize(label.Image, chartGraph.Graphics, ref imageAbsSize))
                             {
                                 SizeF imageRelSize = chartGraph.GetRelativeSize(imageAbsSize);
                                 if ((format.FormatFlags & StringFormatFlags.DirectionVertical) == StringFormatFlags.DirectionVertical)
@@ -5479,7 +5479,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
                             if (this.Common.ImageLoader.GetAdjustedImageSize(label.Image, chartGraph.Graphics, ref imageAbsSize))
                             {
                                 SizeF imageRelSize = chartGraph.GetRelativeSize(imageAbsSize);
-                                
+
                                 if ((format.FormatFlags & StringFormatFlags.DirectionVertical) == StringFormatFlags.DirectionVertical)
                                 {
                                     axisLabelSize.Height += imageRelSize.Height;
@@ -5694,27 +5694,27 @@ namespace System.Windows.Forms.DataVisualization.Charting
                             axisLabelSize.Height = (float)Math.Ceiling(axisLabelSize.Height);
 
 
-							// Add image size
-							if(label.Image.Length > 0)
-							{
+                            // Add image size
+                            if (label.Image.Length > 0)
+                            {
                                 SizeF imageAbsSize = new SizeF();
 
-                                if(this.Common.ImageLoader.GetAdjustedImageSize(label.Image, chartGraph.Graphics, ref imageAbsSize))
-								{
-									SizeF imageRelSize = chartGraph.GetRelativeSize(imageAbsSize);
-									axisLabelSize.Width += imageRelSize.Width;
-									axisLabelSize.Height = Math.Max(axisLabelSize.Height, imageRelSize.Height);
-								}
-							}
+                                if (this.Common.ImageLoader.GetAdjustedImageSize(label.Image, chartGraph.Graphics, ref imageAbsSize))
+                                {
+                                    SizeF imageRelSize = chartGraph.GetRelativeSize(imageAbsSize);
+                                    axisLabelSize.Width += imageRelSize.Width;
+                                    axisLabelSize.Height = Math.Max(axisLabelSize.Height, imageRelSize.Height);
+                                }
+                            }
 
-							// Add extra spacing for the box marking of the label
-							if(label.LabelMark == LabelMarkStyle.Box)
-							{
-								// Get relative size from pixels and add it to the label size
-								SizeF	spacerSize = chartGraph.GetRelativeSize(new SizeF(4, 4));
-								axisLabelSize.Width += spacerSize.Width;
-								axisLabelSize.Height += spacerSize.Height;
-							}
+                            // Add extra spacing for the box marking of the label
+                            if (label.LabelMark == LabelMarkStyle.Box)
+                            {
+                                // Get relative size from pixels and add it to the label size
+                                SizeF spacerSize = chartGraph.GetRelativeSize(new SizeF(4, 4));
+                                axisLabelSize.Width += spacerSize.Width;
+                                axisLabelSize.Height += spacerSize.Height;
+                            }
 
 
 
@@ -5786,21 +5786,21 @@ namespace System.Windows.Forms.DataVisualization.Charting
             return this.IsMarksNextToAxis;
         }
 
-		/// <summary>
-		/// Gets axis auto interval type.
-		/// </summary>
-		/// <returns>Axis interval type.</returns>
-		internal DateTimeIntervalType GetAxisIntervalType()
-		{
-			if(InternalIntervalType == DateTimeIntervalType.Auto)
-			{
-				if(GetAxisValuesType() == ChartValueType.DateTime ||
-					GetAxisValuesType() == ChartValueType.Date ||
-					GetAxisValuesType() == ChartValueType.Time ||
+        /// <summary>
+        /// Gets axis auto interval type.
+        /// </summary>
+        /// <returns>Axis interval type.</returns>
+        internal DateTimeIntervalType GetAxisIntervalType()
+        {
+            if (InternalIntervalType == DateTimeIntervalType.Auto)
+            {
+                if (GetAxisValuesType() == ChartValueType.DateTime ||
+                    GetAxisValuesType() == ChartValueType.Date ||
+                    GetAxisValuesType() == ChartValueType.Time ||
                     GetAxisValuesType() == ChartValueType.DateTimeOffset)
-				{
-					return DateTimeIntervalType.Years;
-				}
+                {
+                    return DateTimeIntervalType.Years;
+                }
 
                 return DateTimeIntervalType.Number;
             }

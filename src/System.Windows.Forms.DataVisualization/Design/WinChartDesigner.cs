@@ -117,7 +117,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
             if (e.Category == UserPreferenceCategory.Color)
                 Control.Invalidate();
         }
-        
+
 
         #endregion
 
@@ -139,7 +139,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
                 }
             }
         }
-        
+
         /// <summary>
         /// Gets selected data source object.
         /// </summary>

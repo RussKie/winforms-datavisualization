@@ -36,21 +36,21 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
         /// <returns>An array of data types that this collection can contain.</returns>
         protected override Type[] CreateNewItemTypes()
         {
-            return new Type[] { 
-				typeof(LineAnnotation), 
-				typeof(VerticalLineAnnotation),
-				typeof(HorizontalLineAnnotation),
-				typeof(TextAnnotation), 
-				typeof(RectangleAnnotation), 
-			    typeof(EllipseAnnotation), 
-			    typeof(ArrowAnnotation),
-				typeof(Border3DAnnotation),
-			    typeof(CalloutAnnotation),
-			    typeof(PolylineAnnotation), 
-			    typeof(PolygonAnnotation), 
-			    typeof(ImageAnnotation), 
-				typeof(AnnotationGroup) 
-			};
+            return new Type[] {
+                typeof(LineAnnotation),
+                typeof(VerticalLineAnnotation),
+                typeof(HorizontalLineAnnotation),
+                typeof(TextAnnotation),
+                typeof(RectangleAnnotation),
+                typeof(EllipseAnnotation),
+                typeof(ArrowAnnotation),
+                typeof(Border3DAnnotation),
+                typeof(CalloutAnnotation),
+                typeof(PolylineAnnotation),
+                typeof(PolygonAnnotation),
+                typeof(ImageAnnotation),
+                typeof(AnnotationGroup)
+            };
         }
 
         /// <summary>

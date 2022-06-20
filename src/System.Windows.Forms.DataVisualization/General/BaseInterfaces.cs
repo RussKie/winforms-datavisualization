@@ -57,7 +57,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// Gets the snapshot of saved collection items.
         /// </summary>
         /// <value>The snapshot.</value>
-        IList Snapshot {get;}
+        IList Snapshot { get; }
         /// <summary>
         /// Raises the <see cref="E:NameReferenceChanged"/> event.
         /// </summary>

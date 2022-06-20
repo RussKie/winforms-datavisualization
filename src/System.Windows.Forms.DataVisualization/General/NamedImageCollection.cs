@@ -25,99 +25,99 @@ namespace System.Windows.Forms.DataVisualization.Charting
     /// objects.
     /// </summary>
     public class NamedImagesCollection : ChartNamedElementCollection<NamedImage>
-	{
-		#region Constructor
+    {
+        #region Constructor
 
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		internal NamedImagesCollection() : base(null)
-		{
-		}
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        internal NamedImagesCollection() : base(null)
+        {
+        }
 
         #endregion
 
-	}
+    }
 
-	/// <summary>
-	/// The NamedImage class stores a single Image with its unique name.
-	/// </summary>
-	[
-		SRDescription("DescriptionAttributeNamedImage_NamedImage"),
-		DefaultProperty("Name"),
-	]
+    /// <summary>
+    /// The NamedImage class stores a single Image with its unique name.
+    /// </summary>
+    [
+        SRDescription("DescriptionAttributeNamedImage_NamedImage"),
+        DefaultProperty("Name"),
+    ]
     public class NamedImage : ChartNamedElement
-	{
-		#region Fields
+    {
+        #region Fields
 
-		private	string _name  = string.Empty;
-		private System.Drawing.Image _image = null;
+        private string _name = string.Empty;
+        private System.Drawing.Image _image = null;
 
-		#endregion
+        #endregion
 
-		#region Constructor
+        #region Constructor
 
-		/// <summary>
+        /// <summary>
         /// NamedImage constructor.
-		/// </summary>
-		public NamedImage()
-		{
-		}
+        /// </summary>
+        public NamedImage()
+        {
+        }
 
-		/// <summary>
+        /// <summary>
         /// NamedImage constructor.
-		/// </summary>
-		/// <param name="name">Image name.</param>
-		/// <param name="image">Image object.</param>
+        /// </summary>
+        /// <param name="name">Image name.</param>
+        /// <param name="image">Image object.</param>
         public NamedImage(string name, System.Drawing.Image image)
-		{
-			this._name = name;
+        {
+            this._name = name;
             this._image = image;
-		}
+        }
 
-		#endregion
+        #endregion
 
-		#region Properties
+        #region Properties
 
-		/// <summary>
-		/// Gets or sets the image name.
-		/// </summary>
-		[
-		Bindable(false),
-		SRDescription("DescriptionAttributeNamedImage_Name"),
-		]
-		public override string Name
-		{
-			get
-			{
-				return _name;
-			}
-			set
-			{
-				_name = value;
-			}
-		}
+        /// <summary>
+        /// Gets or sets the image name.
+        /// </summary>
+        [
+        Bindable(false),
+        SRDescription("DescriptionAttributeNamedImage_Name"),
+        ]
+        public override string Name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                _name = value;
+            }
+        }
 
-		/// <summary>
-		/// Gets or sets the image object.
-		/// </summary>
-		[
-		Bindable(false),
-		SRDescription("DescriptionAttributeNamedImage_Image"),
-		]
-		public System.Drawing.Image Image
-		{
-			get
-			{
+        /// <summary>
+        /// Gets or sets the image object.
+        /// </summary>
+        [
+        Bindable(false),
+        SRDescription("DescriptionAttributeNamedImage_Image"),
+        ]
+        public System.Drawing.Image Image
+        {
+            get
+            {
                 return _image;
-			}
-			set
-			{
+            }
+            set
+            {
                 _image = value;
-			}
-		}
+            }
+        }
 
-		#endregion
+        #endregion
 
 
         #region IDisposable Members
@@ -140,5 +140,5 @@ namespace System.Windows.Forms.DataVisualization.Charting
         }
 
         #endregion
-	}
+    }
 }

@@ -17,14 +17,14 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
     /// Designer editor for the chart areas collection.
     /// </summary>
     internal class AreaCollectionEditor : ChartCollectionEditor
-	{
-		/// <summary>
-		/// Default constructor
-		/// </summary>
-		public AreaCollectionEditor() : base(typeof(ChartAreaCollection))
-		{
-		}
-	}
+    {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        public AreaCollectionEditor() : base(typeof(ChartAreaCollection))
+        {
+        }
+    }
 
     /// <summary>
     /// Used for invoking windows forms MesageBox dialog.
@@ -47,7 +47,7 @@ namespace System.Windows.Forms.Design.DataVisualization.Charting
                 SR.MessageChartTitle,
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, GetMessageBoxOptions());
-            
+
             return result == DialogResult.Yes;
         }
 

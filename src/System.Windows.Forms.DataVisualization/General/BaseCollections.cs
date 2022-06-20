@@ -72,7 +72,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// <summary>
         /// Gets the items as List&lt;T&gt;. Use this property to perform advanced List specific operations (Sorting, etc)
         /// </summary>
-        internal List<T> ItemList 
+        internal List<T> ItemList
         {
             get { return Items as List<T>; }
         }
@@ -110,7 +110,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// <summary>
         /// Suspends invalidation
         /// </summary>
-        public virtual void SuspendUpdates() 
+        public virtual void SuspendUpdates()
         {
             _suspendUpdates++;
         }
@@ -120,11 +120,11 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// </summary>
         public virtual void ResumeUpdates()
         {
-            if (_suspendUpdates>0)
+            if (_suspendUpdates > 0)
                 _suspendUpdates--;
 
-            if (_suspendUpdates==0)
-                this.Invalidate(); 
+            if (_suspendUpdates == 0)
+                this.Invalidate();
         }
 
         /// <summary>
@@ -145,7 +145,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// Deinitializes the specified item.
         /// </summary>
         /// <param name="item">The item.</param>
-        internal virtual void Deinitialize( T item)
+        internal virtual void Deinitialize(T item)
         {
 
         }
@@ -217,7 +217,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
         CommonElements IChartElement.Common
         {
-            get{ return this.Common; }
+            get { return this.Common; }
         }
 
         #endregion
@@ -307,10 +307,10 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
                 else if (!nameFound && itemFound)
                     throw new ArgumentException(SR.ExceptionNameAlreadyExistsInCollection(name, this.GetType().Name));
-                    
+
                 else if (nameFound && itemFound && nameIndex != itemIndex)
                     throw new ArgumentException(SR.ExceptionNameAlreadyExistsInCollection(name, this.GetType().Name));
-                    
+
             }
         }
         #endregion
@@ -346,7 +346,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// </returns>
         public virtual bool IsUniqueName(string name)
         {
-            return FindByName(name)==null;
+            return FindByName(name) == null;
         }
 
         /// <summary>
@@ -393,7 +393,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// <param name="name">Chart element name.</param>
         internal void VerifyNameReference(string name)
         {
-            if (Chart!=null && !Chart.serializing && !IsNameReferenceValid(name))
+            if (Chart != null && !Chart.serializing && !IsNameReferenceValid(name))
                 throw new ArgumentException(SR.ExceptionNameNotFound(name, this.GetType().Name));
         }
 
@@ -403,7 +403,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// <param name="name">Chart element name.</param>
         internal bool IsNameReferenceValid(string name)
         {
-            return  String.IsNullOrEmpty(name) || 
+            return String.IsNullOrEmpty(name) ||
                     name == Constants.NotSetValue ||
                     IndexOf(name) >= 0;
         }
@@ -441,7 +441,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
             base.InsertItem(index, item);
 
             if (this.Count == 1 && item != null)
-            { 
+            {
                 // First element is added to the list -> fire the NameReferenceChanged event to update all the dependent elements
                 ((INameController)this).OnNameReferenceChanged(new NameReferenceChangedEventArgs(null, item));
             }
@@ -463,8 +463,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
             FixNameReferences(item);
 
             // Remember the removedElement
-            ChartNamedElement removedElement = index<Count ? this[index] : null;
-            
+            ChartNamedElement removedElement = index < Count ? this[index] : null;
+
             ((INameController)this).OnNameReferenceChanging(new NameReferenceChangedEventArgs(removedElement, item));
             base.SetItem(index, item);
             // Fire the NameReferenceChanged event to update all the dependent elements
@@ -482,7 +482,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
             if (_disableDeleteCount == 0)
             {
                 ((INameController)this).OnNameReferenceChanged(new NameReferenceChangedEventArgs(removedElement, null));
-            }            
+            }
             base.RemoveItem(index);
             if (_disableDeleteCount == 0)
             {
@@ -497,7 +497,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// Fixes the name references of the item.
         /// </summary>
         internal virtual void FixNameReferences(T item)
-        { 
+        {
             //Nothing to fix at the base class...
         }
 
@@ -567,20 +567,24 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// <param name="save">if set to <c>true</c> collection items will be saved.</param>
         /// <param name="changingCallback">The changing callback.</param>
         /// <param name="changedCallback">The changed callback.</param>
-        void INameController.DoSnapshot(bool save, 
-            EventHandler<NameReferenceChangedEventArgs> changingCallback, 
+        void INameController.DoSnapshot(bool save,
+            EventHandler<NameReferenceChangedEventArgs> changingCallback,
             EventHandler<NameReferenceChangedEventArgs> changedCallback)
         {
             if (save)
             {
                 _cachedState = new List<T>(this);
-                if (changingCallback != null) this.NameReferenceChanging += changingCallback;
-                if (changedCallback  != null) this.NameReferenceChanged += changedCallback;
+                if (changingCallback != null)
+                    this.NameReferenceChanging += changingCallback;
+                if (changedCallback != null)
+                    this.NameReferenceChanged += changedCallback;
             }
             else
             {
-                if (changingCallback != null) this.NameReferenceChanging -= changingCallback;
-                if (changedCallback != null) this.NameReferenceChanged -= changedCallback;
+                if (changingCallback != null)
+                    this.NameReferenceChanging -= changingCallback;
+                if (changedCallback != null)
+                    this.NameReferenceChanged -= changedCallback;
                 _cachedState.Clear();
                 _cachedState = null;
             }
@@ -598,7 +602,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
         #endregion
 
-        
+
     }
 
 }

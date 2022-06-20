@@ -15,7 +15,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
     {
         #region Member variables
 
-        private IChartElement  _parent = null;
+        private IChartElement _parent = null;
         private CommonElements _common = null;
         private object _tag = null;
 
@@ -116,7 +116,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// <summary>
         /// Invalidates this chart element.
         /// </summary>
-        internal virtual void Invalidate() 
+        internal virtual void Invalidate()
         {
             if (_parent != null)
                 _parent.Invalidate();
@@ -140,7 +140,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
 
         CommonElements IChartElement.Common
         {
-            get{ return this.Common; }
+            get { return this.Common; }
         }
 
         #endregion
@@ -158,7 +158,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// <summary>
         /// Performs freeing, releasing, or resetting managed resources.
         /// </summary>
-        [SuppressMessage("Microsoft.Security", "CA2123:OverrideLinkDemandsShouldBeIdenticalToBase")]        
+        [SuppressMessage("Microsoft.Security", "CA2123:OverrideLinkDemandsShouldBeIdenticalToBase")]
         public void Dispose()
         {
             this.Dispose(true);
@@ -236,7 +236,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         #endregion
 
     }
-    
+
     /// <summary>
     /// ChartNamedElement is a base class for most chart elements. Series, ChartAreas, Legends and other chart elements have a Name and reuse the unique name generation and validation logic provided by the ChartNamedElementCollection.
     /// </summary>
@@ -255,20 +255,20 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// </summary>
         /// <value>The name.</value>
         [DefaultValue("")]
-        public virtual string Name 
+        public virtual string Name
         {
             get { return _name; }
-            set 
+            set
             {
                 if (_name != value)
                 {
                     if (Parent is INameController)
                     {
                         INameController nameController = Parent as INameController;
-                        
+
                         if (!nameController.IsUniqueName(value))
                             throw new ArgumentException(SR.ExceptionNameAlreadyExistsInCollection(value, nameController.GetType().Name));
-                        
+
                         // Fire the name change events in case when the old name is not empty
                         NameReferenceChangedEventArgs args = new NameReferenceChangedEventArgs(this, _name, value);
                         nameController.OnNameReferenceChanging(args);
@@ -293,7 +293,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
         /// </summary>
         protected ChartNamedElement()
             : base()
-        { 
+        {
         }
 
         /// <summary>
@@ -331,7 +331,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
             string typeName = GetType().Name;
             return (string.IsNullOrEmpty(_name)) ? typeName : typeName + '-' + _name;
         }
-        
+
         #endregion
 
     }
@@ -369,8 +369,8 @@ namespace System.Windows.Forms.DataVisualization.Charting
         public NameReferenceChangedEventArgs(ChartNamedElement oldElement, ChartNamedElement newElement)
         {
             _oldElement = oldElement;
-            _oldName = oldElement!=null ? oldElement.Name : string.Empty;
-            _newName = newElement!=null ? newElement.Name : string.Empty;
+            _oldName = oldElement != null ? oldElement.Name : string.Empty;
+            _newName = newElement != null ? newElement.Name : string.Empty;
         }
         public NameReferenceChangedEventArgs(ChartNamedElement oldElement, string oldName, string newName)
         {

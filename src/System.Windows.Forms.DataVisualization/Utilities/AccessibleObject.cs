@@ -57,7 +57,7 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
                 return this._chartScreenPosition;
             }
         }
-        
+
         /// <summary>
         /// Gets the role for the Chart. This is used by accessibility programs.
         /// </summary>
@@ -112,7 +112,7 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
             if (index >= 0 && index < this._chartAccessibleObjectList.Count)
             {
                 return this._chartAccessibleObjectList[index];
-            }                
+            }
             return null;
         }
 
@@ -132,12 +132,12 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
                 foreach (Title title in this._chart.Titles)
                 {
                     this._chartAccessibleObjectList.Add(new ChartChildAccessibleObject(
-                        this, 
                         this,
-                        title, 
-                        ChartElementType.Title, 
-                        SR.AccessibilityTitleName(title.Name), 
-                        title.Text, 
+                        this,
+                        title,
+                        ChartElementType.Title,
+                        SR.AccessibilityTitleName(title.Name),
+                        title.Text,
                         AccessibleRole.StaticText));
                 }
 
@@ -160,23 +160,23 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
                     if (textAnnotation != null)
                     {
                         this._chartAccessibleObjectList.Add(new ChartChildAccessibleObject(
-                            this, 
                             this,
-                            annotation, 
+                            this,
+                            annotation,
                             ChartElementType.Annotation,
-                            SR.AccessibilityAnnotationName(annotation.Name), 
-                            textAnnotation.Text, 
+                            SR.AccessibilityAnnotationName(annotation.Name),
+                            textAnnotation.Text,
                             AccessibleRole.StaticText));
                     }
                     else
                     {
                         this._chartAccessibleObjectList.Add(new ChartChildAccessibleObject(
-                            this, 
                             this,
-                            annotation, 
+                            this,
+                            annotation,
                             ChartElementType.Annotation,
-                            SR.AccessibilityAnnotationName(annotation.Name), 
-                            string.Empty, 
+                            SR.AccessibilityAnnotationName(annotation.Name),
+                            string.Empty,
                             AccessibleRole.Graphic));
                     }
                 }
@@ -190,8 +190,8 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
         /// <param name="chartElementType">Chart child element type.</param>
         /// <param name="direction">Navigation direction.</param>
         /// <returns>Accessibility object we just navigated to.</returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "direction"), 
-        System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "chartElementType"), 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "direction"),
+        System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "chartElementType"),
         System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "chartChildElement")]
         public AccessibleObject NavigateFromChild(object chartChildElement, ChartElementType chartElementType, AccessibleNavigation direction)
         {
@@ -205,8 +205,8 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
         /// <param name="chartChildElement">Chart child element.</param>
         /// <param name="chartElementType">Chart child element type.</param>
         /// <param name="selection">Selection actin.</param>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "selection"), 
-        System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "chartElementType"), 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "selection"),
+        System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "chartElementType"),
         System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "chartChildElement")]
         public void SelectChild(object chartChildElement, ChartElementType chartElementType, AccessibleSelection selection)
         {
@@ -388,8 +388,8 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
         /// <param name="role">Chart child object role.</param>
         public ChartChildAccessibleObject(
             ChartAccessibleObject chartAccessibleObject,
-            AccessibleObject chartAccessibleParentObject, 
-            object chartChildObject, 
+            AccessibleObject chartAccessibleParentObject,
+            object chartChildObject,
             ChartElementType chartChildObjectType,
             string name,
             string objectValue,
@@ -418,7 +418,7 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
         /// <param name="pointIndex">Chart data point index.</param>
         public ChartChildAccessibleObject(
             ChartAccessibleObject chartAccessibleObject,
-            AccessibleObject chartAccessibleParentObject, 
+            AccessibleObject chartAccessibleParentObject,
             object chartChildObject,
             ChartElementType chartChildObjectType,
             string name,
@@ -570,24 +570,24 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
         /// </summary>
         /// <param name="chartAccessibleObject">Chart accessible object.</param>
         /// <param name="legend">Chart legend object.</param>
-        public ChartChildLegendAccessibleObject(ChartAccessibleObject chartAccessibleObject, Legend legend) 
+        public ChartChildLegendAccessibleObject(ChartAccessibleObject chartAccessibleObject, Legend legend)
             : base(
                 chartAccessibleObject,
                 chartAccessibleObject,
                 legend, ChartElementType.LegendArea,
-                SR.AccessibilityLegendName(legend.Name), 
-                string.Empty, 
+                SR.AccessibilityLegendName(legend.Name),
+                string.Empty,
                 AccessibleRole.StaticText)
         {
             // Add legend title as a child element
             if (legend.Title.Length > 0)
             {
                 this._childList.Add(new ChartChildAccessibleObject(
-                            chartAccessibleObject, 
+                            chartAccessibleObject,
                             this,
                             legend, ChartElementType.LegendTitle,
-                            SR.AccessibilityLegendTitleName(legend.Name), 
-                            legend.Title, 
+                            SR.AccessibilityLegendTitleName(legend.Name),
+                            legend.Title,
                             AccessibleRole.StaticText));
             }
 
@@ -648,8 +648,8 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
                 chartAccessibleObject,
                 chartAccessibleObject,
                 chartArea, ChartElementType.PlottingArea,
-                SR.AccessibilityChartAreaName(chartArea.Name), 
-                string.Empty, 
+                SR.AccessibilityChartAreaName(chartArea.Name),
+                string.Empty,
                 AccessibleRole.Graphic)
         {
             // Add all series shown in the chart area
