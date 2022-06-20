@@ -21,7 +21,7 @@
 
     <IncludeSymbols>false</IncludeSymbols>
 
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <IsPackable>true</IsPackable>
     <NoWarn>$(NoWarn);NU5125</NoWarn>
 
@@ -32,7 +32,7 @@
 
   <!-- nuspec properties -->
   <PropertyGroup>
-    <PackageId>System.Windows.Forms.DataVisualization </PackageId>
+    <PackageId>System.Windows.Forms.DataVisualization</PackageId>
     <Description>This package contains the charting controls for Windows Forms for .NET Core.</Description>
     <Authors>Microsoft</Authors>
     <RepositoryUrl>https://github.com/dotnet/winforms-datavisualization</RepositoryUrl>

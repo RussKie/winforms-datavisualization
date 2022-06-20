@@ -147,11 +147,7 @@ namespace System.Windows.Forms.DataVisualization.Charting
                     IntPtr hdc = IntPtr.Zero;
                     try
                     {
-                        System.Security.Permissions.SecurityPermission securityPermission = new System.Security.Permissions.SecurityPermission(System.Security.Permissions.SecurityPermissionFlag.UnmanagedCode);
-                        securityPermission.Demand();
-
                         hdc = newGraphics.GetHdc();
-
 
                         // Create metafile object to record.
                         using (Metafile metaFile = new Metafile(

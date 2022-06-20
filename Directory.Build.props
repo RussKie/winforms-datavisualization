@@ -7,11 +7,6 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
-  <!-- workaround for package downgrade in Microsoft.NetCore.Platforms -->
-  <PropertyGroup>
-    <DisableImplicitNETCorePlatformsReference>true</DisableImplicitNETCorePlatformsReference>
-  </PropertyGroup>
-
   <PropertyGroup>
     <Deterministic>true</Deterministic>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
